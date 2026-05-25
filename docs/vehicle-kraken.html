@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kraken 2025 | AUVIC</title>
+    
+    <!-- CSS -->
+     <link rel="stylesheet" href="css/styles.css">
+     
+     <!-- FONTS -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+    <img src="media/auvic-logo-white.png" alt="AUVIC logo" class="logo">
+    
+    <div class="title">
+        <a href="index.html">AUVIC: Autonomous Underwater Vehicles</a>
+    </div>
+    
+    <nav class="nav">
+        <div class="nav-item">
+            <a href="#">Vehicles</a>
+            <div class="dropdown">
+                <a href="vehicle-snappy.html">Snappy 2026</a>
+                <a class="active-page" href="vehicle-kraken.html">Kraken 2025</a>
+                <a href="vehicle-trident.html">Trident 2023</a>
+                <a href="vehicle-polaris.html">Polaris 2018 & 2019</a>
+                <a href="vehicle-redherring.html">Red Herring 2016 & 2017</a>
+                <a href="vehicle-aerius.html">Aerius 2009</a>
+            </div>
+        </div>
+        
+        <div class="nav-item">
+            <a href="#">Competitions</a>
+            <div class="dropdown">
+                <a href="competition-2026.html">2026</a>
+                <a href="competition-2025.html">2025</a>
+            </div>
+        </div>
+        
+        <a href="about-us.html">About Us</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="contact-us.html">Contact Us</a>
+
+        <div class="site-search">
+            <input type="text" id="siteSearchInput" placeholder="Search..." autocomplete="off">
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+
+<main class="vehicle-page">
+    
+<!-- HERO -->
+ 
+<section class="vehicle-hero">
+    <h1 class="page-title">Kraken 2025</h1>
+    <img src="media/kraken2025-main.png" alt="Kraken 2025 vehicle" class="vehicle-main-image">
+</section>
+
+<!-- DESCRIPTION -->
+
+<section class="vehicle-description">
+    <h2>About the Kraken</h2>
+    <p>
+    The Kraken is the AUV that was used by the 2025 AUVIC team. This AUV was an extension of the work completed by the previous years team. Projects included a dropper, claw, torpedoes, as well as countless electrical and software updates. 
+    </p>
+</section>
+
+<!-- ACCORDION -->
+
+<section class="accordion-section">
+
+    <!-- Team Updates -->
+
+    <h3 style="color:#0073bc; margin-bottom: 15px;">Team Updates</h3>
+    
+    <button class="accordion">Electrical Overview</button>
+    <div class="panel">
+        <p>
+        All electrical inside of the main housing was upgraded with the implantation of custom motor controller and power distribution PCBs. The system was powered by two 6S Lipo batteries. An aluminum plate was designed as a heat sink to mount the ESCs properly so that the thrusters could be powered to their full power without the worry of overheating.
+        </p>
+    </div>
+
+    <button class="accordion">Mechanical Overview</button>
+    <div class="panel">
+        <p>
+        While keeping the same design philosophy as the original, the majority of the sub was either redesigned or modified to improve its functionality. A new UHMW sheet was manufactured to fit the newly designed attachments. The inner structure of the acrylic tube was reconfigured to mount the new PCBs and ESCs. A new back plate was manufactured to allow for more peripheral device connections. Small adjustments were made to the aluminum frame to adjust bracket placements to improve functionality of the submarine.
+        </p>
+    </div>
+
+    <button class="accordion">Software Overview</button>
+    <div class="panel">
+        <p>
+        Development started on the Nvidia Jetson TX2, utilizing 2 USB camera modules, a Blue Robotics Bar02 pressure sensor for depth, and an XSens MTI 620 VRU for acceleration and orientation data. During this development, the TX2 was upgraded to the Nvidia Jetson Orin Nano and the cameras were upgraded to the Intel RealSense D435i (front facing) and D405 (bottom facing) cameras. These changes greatly improved the computer vision capabilities of the Kraken’s software architecture. With these upgrades, the software system was improved from 2023, with a functional closed loop control system, feeding sensor data into a PID controller for determining necessary thrust, and a basic computer vision system able to detect and locate competition course components. The communication between all of these systems was handled by the ROS2 framework, managing interprocess communication and concurrency.
+        </p>
+    </div>
+
+    <!-- Vehicle Parts -->
+
+    <h3 style="color:#0073bc; margin-top: 35px; margin-bottom: 15px;">Vehicle Parts</h3>
+
+    <button class="accordion">Ball Dropper</button>
+    <div class="panel">
+        <p>
+        The 2025 Kraken was the first Kraken rendition to include a working Ball dropper. The 3D printed Ball dropper was able to drop two 3D printed markers weighed down by internal metal balls independently of each other from two enclosed solenoid assemblies. The solenoids retracted a pin allowing the markers to drop with the help of gravity.
+        </p>
+    </div>
+
+    <button class="accordion">Power Board</button>
+    <div class="panel">
+        <p>
+        The Power board received power from two large 6s batteries and stepped down to 16,12 and 5V. 
+        </p>
+    </div>
+
+    <button class="accordion">Torpedo Launcher</button>
+    <div class="panel">
+        <p>
+        The 2025 Kraken was the first Kraken rendition to include a Torpedo. The Torpedo was machined from two Delrin tubes with an internal loaded spring that could launch two independent 3D printed torpedoes with an internal metal rod for stability. The torpedo assembly used the same solenoid enclosure to launch the torpedoes. In testing the solenoid lacked the power to consistently launch the torpedoes safely and was not used at competition. We are hoping this design will be improved for use on Snappy in 2026.
+        </p>
+    </div>
+
+</section>
+
+<!--ADDITIONAL DETAILS-->
+
+<section class="vehicle-description">
+    <p>
+        The submarine was able to qualify at competition and independently find the travel through the gate. The submarine was also able to perform controlled barrel roles and turns.
+    </p>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+    <p>© AUVIC University of Victoria 2026</p>
+</footer>
+
+<!-- SCRIPT -->
+
+<script>
+
+/* ACCORDION */
+
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach(button => {
+    button.addEventListener("click", () => {
+        const panel = button.nextElementSibling;
+        
+        if (panel.style.display === "block") {
+        panel.style.display = "none";
+        } else {
+        panel.style.display = "block";
+        }
+    });
+  });
+
+/* GALLERY SLIDER */
+
+const slides = document.querySelectorAll(".gallery-slide");
+let currentSlide = 0;
+
+    if (slides.length > 0) {
+    setInterval(() => {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add("active");
+    }, 3000);
+  }
+</script>
+
+<!-- SEARCH SCRIPT -->
+<script>
+  const pages = [
+    {
+      title: "Home",
+      url: "index.html",
+      keywords: "home auvic autonomous underwater vehicles submarine meetings discord snappy"
+    },
+
+    {
+      title: "Snappy",
+      url: "vehicle-snappy.html",
+      keywords: "snappy 2026 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Kraken",
+      url: "vehicle-kraken.html",
+      keywords: "kraken 2025 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Trident",
+      url: "vehicle-trident.html",
+      keywords: "trident 2023 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Polaris",
+      url: "vehicle-polaris.html",
+      keywords: "polaris 2018 2019 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Red Herring",
+      url: "vehicle-redherring.html",
+      keywords: "red herring redherring 2016 2017 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Aerius",
+      url: "vehicle-aerius.html",
+      keywords: "aerius 2009 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Competition 2026",
+      url: "competition-2026.html",
+      keywords: "competition 2026 robosub california woollett aquatics center centre irvine usa goals qualify participants july"
+    },
+
+    {
+      title: "Competition 2025",
+      url: "competition-2025.html",
+      keywords: "competition 2025 robosub california woollett aquatics center centre irvine usa goals qualify participants august 29 29th results"
+    },
+
+    {
+      title: "About Us",
+      url: "about-us.html",
+      keywords: "about us team people student club admin administration lead president project manager bio members"
+    },
+
+    {
+      title: "Sponsors",
+      url: "sponsors.html",
+      keywords: "sponsor sponsors organizations organisations companies support bc ferries cewil rainhouse altium altech anodizing ltd send cut send sendcutsend donate sponsorship"
+    },
+
+    {
+      title: "Contact Us",
+      url: "contact-us.html",
+      keywords: "join connect contact countdown email discord instagram insta linked in linkedin mail mailing address location b250 meeting times"
+    },
+  ];
+
+  const searchInput = document.getElementById("siteSearchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase().trim();
+    searchResults.innerHTML = "";
+
+    if (query === "") {
+      searchResults.style.display = "none";
+      return;
+    }
+
+    const matches = pages.filter(page =>
+      page.title.toLowerCase().includes(query) ||
+      page.keywords.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = `<div class="search-no-results">No results found</div>`;
+    } else {
+      matches.forEach(page => {
+        const resultLink = document.createElement("a");
+        resultLink.href = page.url;
+        resultLink.textContent = page.title;
+        searchResults.appendChild(resultLink);
+      });
+    }
+
+    searchResults.style.display = "block";
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".site-search")) {
+      searchResults.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUVIC | Sponsors</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.home-page {
+      margin: 0;
+      padding-bottom: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #111;
+      background: #ffffff;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* HEADER / NAV FIX */
+    .header {
+      position: relative;
+      z-index: 5000;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 5001;
+    }
+
+    .nav-item {
+      position: relative;
+      z-index: 5002;
+    }
+
+    .dropdown {
+      position: absolute;
+      z-index: 9999;
+    }
+
+    /* HERO */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 58vh;
+      overflow: hidden;
+      background: #002754;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-fallback {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(87,183,231,0.20), transparent 30%),
+        radial-gradient(circle at 80% 35%, rgba(255,255,255,0.10), transparent 25%),
+        linear-gradient(to bottom, rgba(0,39,84,0.35), rgba(0,39,84,0.75));
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 1000px;
+    }
+
+    .hero-overlay h1 {
+      margin: 0;
+      color: white;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.15;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    }
+
+    .hero-overlay p {
+      margin: 18px auto 0;
+      color: #eef8ff;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      max-width: 760px;
+      line-height: 1.7;
+    }
+
+    /* GENERAL SECTION STYLES */
+    .section-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 70px 20px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #F5AA1C;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin: 0 0 18px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 34px;
+      line-height: 1.7;
+    }
+
+    /* BUTTON STYLE */
+    .home-btn {
+      display: inline-block;
+      background: #0073BC;
+      color: white;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Open Sans', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .home-btn:hover {
+      background: #57B7E7;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .home-btn:active {
+      background: #26A739;
+      color: white;
+    }
+
+    /* SPONSOR GRID */
+    .sponsor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-top: 10px;
+      align-items: stretch;
+    }
+
+    .sponsor-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      height: 100%;
+    }
+
+    .sponsor-card {
+      background: transparent;
+      border: 2px solid #57B7E7;
+      border-radius: 12px;
+      padding: 26px 22px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    .sponsor-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .sponsor-logo-wrap {
+      width: 100%;
+      height: 120px;
+      background: white;
+      border: 1px solid #e3eef6;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .sponsor-logo-wrap img {
+      max-width: 100%;
+      max-height: 70px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .sponsor-card h3 {
+      color: #002754;
+      font-size: 1.2rem;
+      margin: 0 0 12px;
+    }
+
+    .sponsor-card p {
+      margin: 0;
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    /* CTA */
+    .sponsor-cta {
+      margin-top: 40px;
+      background: #002754;
+      color: white;
+      border-radius: 12px;
+      padding: 30px 24px;
+      text-align: center;
+    }
+
+    .sponsor-cta h3 {
+      margin: 0 0 10px;
+      font-size: 1.6rem;
+      color: #FFD84D;
+    }
+
+    .sponsor-cta p {
+      margin: 0 0 18px;
+      line-height: 1.7;
+      color: white;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 70px;
+      text-align: center;
+      padding: 24px 20px;
+      background: #002754;
+      color: white;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .sponsor-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-banner {
+        min-height: 48vh;
+      }
+
+      .sponsor-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sponsor-card {
+        padding: 22px 18px;
+      }
+
+      .sponsor-cta {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body class="home-page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <img src="media/auvic-logo-white.png" alt="AUVIC logo" class="logo">
+
+    <div class="title">
+      <a href="index.html">AUVIC: Autonomous Underwater Vehicles</a>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="#">Vehicles</a>
+        <div class="dropdown">
+          <a href="vehicle-snappy.html">Snappy 2026</a>
+          <a href="vehicle-kraken.html">Kraken 2025</a>
+          <a href="vehicle-trident.html">Trident 2023</a>
+          <a href="vehicle-polaris.html">Polaris 2018 & 2019</a>
+          <a href="vehicle-redherring.html">Red Herring 2016 & 2017</a>
+          <a href="vehicle-aerius.html">Aerius 2009</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#">Competitions</a>
+        <div class="dropdown">
+          <a href="competition-2026.html">2026</a>
+          <a href="competition-2025.html">2025</a>
+        </div>
+      </div>
+
+      <a href="about-us.html">About Us</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact-us.html">Contact Us</a>
+
+      <div class="site-search">
+        <input type="text" id="siteSearchInput" placeholder="Search..." autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- SPONSORS SECTION -->
+  <section class="section-shell">
+    <h1 class="section-title">Our Sponsors</h1>
+    <p class="section-intro">
+      AUVIC is grateful for the organizations that support our team, our projects, and student innovation. Our sponsors play an important role in helping AUVIC design, build, and improve autonomous underwater vehicles. Learn more about the companies and organizations that support our work.
+    </p>
+
+    <div class="sponsor-grid">
+
+      <a href="https://www.bcferries.com/" target="_blank" class="sponsor-link">
+        <div class="sponsor-card">
+          <div class="sponsor-logo-wrap">
+            <img src="media/bcferries.png" alt="BC Ferries logo">
+          </div>
+          <h3>BC Ferries</h3>
+          <p>
+            BC Ferries is one of the largest ferry operators in the world, connecting coastal communities across British Columbia through passenger and vehicle ferry services.
+          </p>
+        </div>
+      </a>
+
+      <a href="https://cewilcanada.ca/" target="_blank" class="sponsor-link">
+        <div class="sponsor-card">
+          <div class="sponsor-logo-wrap">
+            <img src="media/cewilcanada.png" alt="CEWIL Canada logo">
+          </div>
+          <h3>CEWIL Canada</h3>
+          <p>
+            CEWIL Canada supports work-integrated learning across the country, helping students gain practical, career-building experience through education and industry partnerships.
+          </p>
+        </div>
+      </a>
+
+      <a href="https://rainhouse.com/" target="_blank" class="sponsor-link">
+        <div class="sponsor-card">
+          <div class="sponsor-logo-wrap">
+            <img src="media/rainhouse.png" alt="Rainhouse Manufacturing Canada Ltd logo">
+          </div>
+          <h3>Rainhouse Manufacturing Canada Ltd.</h3>
+          <p>
+            Rainhouse Manufacturing provides advanced manufacturing and machining services, helping create high-quality custom components for engineering and technology projects.
+          </p>
+        </div>
+      </a>
+
+      <a href="https://www.altium.com/" target="_blank" class="sponsor-link">
+        <div class="sponsor-card">
+          <div class="sponsor-logo-wrap">
+            <img src="media/altium.png" alt="Altium logo">
+          </div>
+          <h3>Altium</h3>
+          <p>
+            Altium develops electronics design software used for printed circuit board design, supporting engineers and teams working on complex electrical systems.
+          </p>
+        </div>
+      </a>
+
+      <a href="https://www.altechanodizing.com/" target="_blank" class="sponsor-link">
+        <div class="sponsor-card">
+          <div class="sponsor-logo-wrap">
+            <img src="media/altech.png" alt="Altech Anodizing Ltd logo">
+          </div>
+          <h3>Altech Anodizing Ltd.</h3>
+          <p>
+            Altech Anodizing provides metal finishing and anodizing services, helping improve the durability, performance, and appearance of precision components.
+          </p>
+        </div>
+      </a>
+
+      <a href="https://sendcutsend.com/" target="_blank" class="sponsor-link">
+        <div class="sponsor-card">
+          <div class="sponsor-logo-wrap">
+            <img src="media/sendcutsend.png" alt="SendCutSend logo">
+          </div>
+          <h3>SendCutSend</h3>
+          <p>
+            SendCutSend offers fast custom manufacturing services including laser cutting, bending, and fabrication for teams building prototypes and engineered parts.
+          </p>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="sponsor-cta">
+      <h3>Interested in Supporting AUVIC?</h3>
+      <p>
+        Sponsorship helps our team continue developing vehicles, competing, and giving students valuable hands-on experience in engineering and design.
+      </p>
+      <a href="contact-us.html" class="home-btn">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© AUVIC University of Victoria 2026</p>
+  </footer>
+
+  <!-- SEARCH SCRIPT -->
+<script>
+  const pages = [
+    {
+      title: "Home",
+      url: "index.html",
+      keywords: "home auvic autonomous underwater vehicles submarine meetings discord snappy"
+    },
+
+    {
+      title: "Snappy",
+      url: "vehicle-snappy.html",
+      keywords: "snappy 2026 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Kraken",
+      url: "vehicle-kraken.html",
+      keywords: "kraken 2025 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Trident",
+      url: "vehicle-trident.html",
+      keywords: "trident 2023 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Polaris",
+      url: "vehicle-polaris.html",
+      keywords: "polaris 2018 2019 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Red Herring",
+      url: "vehicle-redherring.html",
+      keywords: "red herring redherring 2016 2017 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Aerius",
+      url: "vehicle-aerius.html",
+      keywords: "aerius 2009 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Competition 2026",
+      url: "competition-2026.html",
+      keywords: "competition 2026 robosub california woollett aquatics center centre irvine usa goals qualify participants july"
+    },
+
+    {
+      title: "Competition 2025",
+      url: "competition-2025.html",
+      keywords: "competition 2025 robosub california woollett aquatics center centre irvine usa goals qualify participants august 29 29th results"
+    },
+
+    {
+      title: "About Us",
+      url: "about-us.html",
+      keywords: "about us team people student club admin administration lead president project manager bio members"
+    },
+
+    {
+      title: "Sponsors",
+      url: "sponsors.html",
+      keywords: "sponsor sponsors organizations organisations companies support bc ferries cewil rainhouse altium altech anodizing ltd send cut send sendcutsend donate sponsorship"
+    },
+
+    {
+      title: "Contact Us",
+      url: "contact-us.html",
+      keywords: "join connect contact countdown email discord instagram insta linked in linkedin mail mailing address location b250 meeting times"
+    },
+  ];
+
+  const searchInput = document.getElementById("siteSearchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase().trim();
+    searchResults.innerHTML = "";
+
+    if (query === "") {
+      searchResults.style.display = "none";
+      return;
+    }
+
+    const matches = pages.filter(page =>
+      page.title.toLowerCase().includes(query) ||
+      page.keywords.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = `<div class="search-no-results">No results found</div>`;
+    } else {
+      matches.forEach(page => {
+        const resultLink = document.createElement("a");
+        resultLink.href = page.url;
+        resultLink.textContent = page.title;
+        searchResults.appendChild(resultLink);
+      });
+    }
+
+    searchResults.style.display = "block";
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".site-search")) {
+      searchResults.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robosub 2025 Competition | AUVIC</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- STYLES (Do not edit) -->
+
+  <style>
+    .competition-page {
+      padding: 40px 20px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      color: #FDB813;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+    }
+
+    .competition-main-image {
+      width: 85%;
+      max-width: 850px;
+      display: block;
+      margin: 0 auto 40px;
+      border-radius: 10px;
+    }
+
+    .section-title {
+      color: #002754;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+    }
+
+    /* DETAILS */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin: 30px auto 45px;
+      max-width: 1000px;
+    }
+
+    .detail-card {
+      text-align: center;
+      padding: 20px 15px;
+      border-radius: 12px;
+      border: 2px solid #57B7E7;
+    }
+
+    .detail-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 14px;
+    }
+
+    .placement-text {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #002754;
+    }
+
+    /* PARTICIPANTS */
+    .attendee-gallery-section {
+      margin: 40px 0 30px;
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .attendee-gallery-wrapper {
+      overflow: hidden;
+      width: 100%;
+      background: #f7f9fc;
+      padding: 24px 0;
+    }
+
+    .attendee-gallery-track {
+      display: flex;
+      gap: 18px;
+      animation: scrollAttendees 40s linear infinite;
+    }
+
+    .attendee-gallery-wrapper:hover .attendee-gallery-track {
+      animation-play-state: paused;
+    }
+
+    .attendee-card {
+      width: 200px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      flex-shrink: 0;
+    }
+
+    .attendee-name {
+      background: #0073BC;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .attendee-photo {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .attendee-role {
+      background: #0073BC;
+      color: white;
+      text-align: center;
+      padding: 12px;
+    }
+
+    @keyframes scrollAttendees {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .button-wrap {
+      text-align: center;
+      margin: 25px 0 40px;
+    }
+
+    .page-btn {
+      background: #FDB813;
+      color: #002754;
+      padding: 12px 22px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .page-btn:hover {
+      background: #26A739;
+      color: white;
+    }
+
+    .competition-blurb {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<!-- GENERIC HEADER (On every page - if you change it on one page, make sure to copy-paste into here, but also remember to update the current page so the title is yellow) -->
+
+<body>
+
+<header class="header">
+    <img src="media/auvic-logo-white.png" alt="AUVIC logo" class="logo">
+
+    <div class="title">
+      <a href="index.html">AUVIC: Autonomous Underwater Vehicles</a>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="#">Vehicles</a>
+        <div class="dropdown">
+          <a href="vehicle-snappy.html">Snappy 2026</a>
+          <a href="vehicle-kraken.html">Kraken 2025</a>
+          <a href="vehicle-trident.html">Trident 2023</a>
+          <a href="vehicle-polaris.html">Polaris 2018 & 2019</a>
+          <a href="vehicle-redherring.html">Red Herring 2016 & 2017</a>
+          <a href="vehicle-aerius.html">Aerius 2009</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#">Competitions</a>
+        <div class="dropdown">
+          <a href="competition-2026.html">2026</a>
+          <a class="active-page" href="competition-2025.html">2025</a>
+        </div>
+      </div>
+
+      <a href="about-us.html">About Us</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact-us.html">Contact Us</a>
+
+      <div class="site-search">
+        <input type="text" id="siteSearchInput" placeholder="Search..." autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      
+    </nav>
+  </header>
+
+<main class="competition-page">
+
+  <!-- MAIN TITLE -->
+
+  <h1 class="page-title">Robosub 2025 Competition</h1>
+
+  <!-- MAIN IMAGE -->
+
+  <img src="media/robosub2025-team.png" class="competition-main-image">
+
+  <!-- ROBOSUB 2025 COMPETITION DETAILS -->
+
+  <h2 class="section-title">Robosub 2025 Competition Details</h2>
+
+  <div class="details-grid">
+    <div class="detail-card">
+      <img src="media/robosub2025-location.png" class="detail-icon">
+      <p>Woollett Aquatics Center in Irvine, California, USA</p>
+    </div>
+
+    <div class="detail-card">
+      <img src="media/calendaricon.png" class="detail-icon">
+      <p>August 11-17
+        <br>2025
+      </p>
+    </div>
+
+    <div class="detail-card">
+      <img src="media/robosub2025-placement.png" class="detail-icon">
+      <p class="placement-text">29th</p>
+    </div>
+  </div>
+
+  <!-- PARTICIPANTS -->
+
+  <section class="attendee-gallery-section">
+    <h2 class="section-title">Participants</h2>
+
+    <div class="attendee-gallery-wrapper">
+      <div class="attendee-gallery-track">
+
+        <!-- Original Set (make sure to copy-paste this into the duplicate section whenever you update it - it will allow for a seamless transition) -->
+
+        <div class="attendee-card">
+          <div class="attendee-name">Isaac Bergstrom</div>
+          <img src="media/isaacbergstrom2026.png" class="attendee-photo">
+          <div class="attendee-role">Mechanical Lead</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Marcus Ganz</div>
+          <img src="media/marcusganz2026.png" class="attendee-photo">
+          <div class="attendee-role">Software Team</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Renata Kamel</div>
+          <img src="media/renatakamel2026.png" class="attendee-photo">
+          <div class="attendee-role">President</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Sierra Gibson</div>
+          <img src="media/sierragibson2025.png" class="attendee-photo">
+          <div class="attendee-role">Mechanical Team</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Jack Davies</div>
+          <img src="media/jackdavies2025.png" class="attendee-photo">
+          <div class="attendee-role">Mechanical Team</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Ethan Dean</div>
+          <img src="media/ethanlogemandean2026.png" class="attendee-photo">
+          <div class="attendee-role">Software Lead</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Matt Kepler</div>
+          <img src="media/mattkepler2025.png" class="attendee-photo">
+          <div class="attendee-role">Project Manager</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Calum Clark</div>
+          <img src="media/calumclark2025.png" class="attendee-photo">
+          <div class="attendee-role">Electrical Team</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Kieran Schmidtke</div>
+          <img src="media/kieranschmidtke2025.png" class="attendee-photo">
+          <div class="attendee-role">Mechanical Team</div>
+        </div>
+
+        <!-- Duplicate Set (Copy-paste the Original Set into this section) -->
+
+        <div class="attendee-card">
+          <div class="attendee-name">Isaac Bergstrom</div>
+          <img src="media/isaacbergstrom2026.png" class="attendee-photo">
+          <div class="attendee-role">Mechanical Lead</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Marcus Ganz</div>
+          <img src="media/marcusganz2026.png" class="attendee-photo">
+          <div class="attendee-role">Software Team</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Renata Kamel</div>
+          <img src="media/renatakamel2026.png" class="attendee-photo">
+          <div class="attendee-role">President</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Sierra Gibson</div>
+          <img src="media/sierragibson2025.png" class="attendee-photo">
+          <div class="attendee-role">Mechanical Team</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Jack Davies</div>
+          <img src="media/jackdavies2025.png" class="attendee-photo">
+          <div class="attendee-role">Mechanical Team</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Ethan Dean</div>
+          <img src="media/ethanlogemandean2026.png" class="attendee-photo">
+          <div class="attendee-role">Software Lead</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Matt Kepler</div>
+          <img src="media/mattkepler2025.png" class="attendee-photo">
+          <div class="attendee-role">Project Manager</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Calum Clark</div>
+          <img src="media/calumclark2025.png" class="attendee-photo">
+          <div class="attendee-role">Electrical Team</div>
+        </div>
+
+        <div class="attendee-card">
+          <div class="attendee-name">Kieran Schmidtke</div>
+          <img src="media/kieranschmidtke2025.png" class="attendee-photo">
+          <div class="attendee-role">Mechanical Team</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="button-wrap">
+    <a href="about-us.html" class="page-btn">More AUVIC Team Members</a>
+  </div>
+
+  <!-- ROBOSUB 2025 COMPETITION RESULTS -->
+
+  <section>
+    <h2 class="section-title">Robosub 2025 Competition Results</h2>
+
+    <div class="competition-blurb">
+      <p>
+        AUVIC placed 29th at the Robosub 2025 competition. The competition featured teams from around the world, with first place going to a team from Singapore.
+      </p>
+    </div>
+
+    <div class="button-wrap">
+      <a href="https://robosub.org/2025/08/18/robosub-2025-final-standings/" target="_blank" class="page-btn">
+        Robosub 2025 Results
+      </a>
+    </div>
+  </section>
+
+  <!-- GOALS FOR THE ROBOSUB 2026 COMPETITION -->
+
+  <section>
+    <h2 class="section-title">Goals for the Robosub 2026 Competition</h2>
+
+    <div class="competition-blurb">
+      <p>
+        The team is focused on teamwork, refining systems, and building on lessons learned to achieve stronger performance in the Robosub 2026 competition.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+  <!-- FOOTER (Same on every page - copy-paste onto all pages if you make changes)-->
+
+<footer class="footer">
+  <p>© AUVIC University of Victoria 2026</p>
+</footer>
+
+<!-- SEARCH SCRIPT -->
+<script>
+  const pages = [
+    {
+      title: "Home",
+      url: "index.html",
+      keywords: "home auvic autonomous underwater vehicles submarine meetings discord snappy"
+    },
+
+    {
+      title: "Snappy",
+      url: "vehicle-snappy.html",
+      keywords: "snappy 2026 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Kraken",
+      url: "vehicle-kraken.html",
+      keywords: "kraken 2025 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Trident",
+      url: "vehicle-trident.html",
+      keywords: "trident 2023 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Polaris",
+      url: "vehicle-polaris.html",
+      keywords: "polaris 2018 2019 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Red Herring",
+      url: "vehicle-redherring.html",
+      keywords: "red herring redherring 2016 2017 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Aerius",
+      url: "vehicle-aerius.html",
+      keywords: "aerius 2009 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Competition 2026",
+      url: "competition-2026.html",
+      keywords: "competition 2026 robosub california woollett aquatics center centre irvine usa goals qualify participants july"
+    },
+
+    {
+      title: "Competition 2025",
+      url: "competition-2025.html",
+      keywords: "competition 2025 robosub california woollett aquatics center centre irvine usa goals qualify participants august 29 29th results"
+    },
+
+    {
+      title: "About Us",
+      url: "about-us.html",
+      keywords: "about us team people student club admin administration lead president project manager bio members"
+    },
+
+    {
+      title: "Sponsors",
+      url: "sponsors.html",
+      keywords: "sponsor sponsors organizations organisations companies support bc ferries cewil rainhouse altium altech anodizing ltd send cut send sendcutsend donate sponsorship"
+    },
+
+    {
+      title: "Contact Us",
+      url: "contact-us.html",
+      keywords: "join connect contact countdown email discord instagram insta linked in linkedin mail mailing address location b250 meeting times"
+    },
+  ];
+
+  const searchInput = document.getElementById("siteSearchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase().trim();
+    searchResults.innerHTML = "";
+
+    if (query === "") {
+      searchResults.style.display = "none";
+      return;
+    }
+
+    const matches = pages.filter(page =>
+      page.title.toLowerCase().includes(query) ||
+      page.keywords.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = `<div class="search-no-results">No results found</div>`;
+    } else {
+      matches.forEach(page => {
+        const resultLink = document.createElement("a");
+        resultLink.href = page.url;
+        resultLink.textContent = page.title;
+        searchResults.appendChild(resultLink);
+      });
+    }
+
+    searchResults.style.display = "block";
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".site-search")) {
+      searchResults.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

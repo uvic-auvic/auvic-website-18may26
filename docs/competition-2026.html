@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robosub 2026 Competition | AUVIC</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- STYLES (Do not edit) -->
+
+  <style>
+    .competition-page {
+      padding: 40px 20px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      color: #FDB813;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+    }
+
+    .competition-main-image {
+      width: 85%;
+      max-width: 750px;
+      display: block;
+      margin: 0 auto 40px;
+      border-radius: 10px;
+    }
+
+    .section-title {
+      color: #002754;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+    }
+
+    /* COMPETITION DETAILS */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin: 30px auto 45px;
+      max-width: 800px;
+    }
+
+    .detail-card {
+      text-align: center;
+      background: transparent;
+      padding: 22px 18px;
+      border-radius: 12px;
+      border: 2px solid #57B7E7;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .detail-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .detail-icon {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 14px;
+      border-radius: 8px;
+    }
+
+    .detail-text {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* ATTENDEE GALLERY */
+    .attendee-gallery-section {
+      margin: 40px 0 30px;
+      position: relative;
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .attendee-gallery-wrapper {
+      overflow: hidden;
+      width: 100%;
+      background: #f7f9fc;
+      padding: 24px 0;
+    }
+
+    .attendee-gallery-track {
+      display: flex;
+      width: max-content;
+      gap: 18px;
+      animation: scrollAttendees 40s linear infinite;
+    }
+
+    .attendee-gallery-wrapper:hover .attendee-gallery-track {
+      animation-play-state: paused;
+    }
+
+    .attendee-card {
+      width: 200px;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .attendee-name {
+      background: #0073BC;
+      color: white;
+      text-align: center;
+      padding: 12px 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+    }
+
+    .attendee-photo {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .attendee-role {
+      background: #0073BC;
+      color: white;
+      text-align: center;
+      padding: 14px 12px;
+      font-size: 0.95rem;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes scrollAttendees {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .more-team-btn-wrap {
+      text-align: center;
+      margin: 25px 0 50px;
+    }
+
+    .more-team-btn {
+      display: inline-block;
+      background: #FDB813;
+      color: #002754;
+      text-decoration: none;
+      padding: 12px 22px;
+      font-weight: 700;
+      border-radius: 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .more-team-btn:hover {
+      background: #26A739;
+      color: white;
+    }
+
+    .more-team-btn:active {
+      background: #57B7E7;
+      color: white;
+    }
+
+    /* GOALS */
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin: 30px auto 35px;
+      max-width: 1000px;
+    }
+
+    .goal-card {
+      text-align: center;
+      background: white;
+      padding: 20px 15px;
+      border-radius: 10px;
+    }
+
+    .goal-icon {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 14px;
+      border-radius: 8px;
+    }
+
+    .goal-text {
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .competition-blurb {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .goals-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .competition-main-image {
+        width: 95%;
+      }
+
+      .attendee-card {
+        width: 170px;
+      }
+
+      .attendee-photo {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .goals-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- GENERIC HEADER (On every page - if you change it on one page, make sure to copy-paste into here, but also remember to update the current page so the title is yellow) -->
+
+  <header class="header">
+    <img src="media/auvic-logo-white.png" alt="AUVIC logo" class="logo">
+
+    <div class="title">
+      <a href="index.html">AUVIC: Autonomous Underwater Vehicles</a>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="#">Vehicles</a>
+        <div class="dropdown">
+          <a href="vehicle-snappy.html">Snappy 2026</a>
+          <a href="vehicle-kraken.html">Kraken 2025</a>
+          <a href="vehicle-trident.html">Trident 2023</a>
+          <a href="vehicle-polaris.html">Polaris 2018 & 2019</a>
+          <a href="vehicle-redherring.html">Red Herring 2016 & 2017</a>
+          <a href="vehicle-aerius.html">Aerius 2009</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#">Competitions</a>
+        <div class="dropdown">
+          <a class="active-page" href="competition-2026.html">2026</a>
+          <a href="competition-2025.html">2025</a>
+        </div>
+      </div>
+
+      <a href="about-us.html">About Us</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact-us.html">Contact Us</a>
+
+      <div class="site-search">
+        <input type="text" id="siteSearchInput" placeholder="Search..." autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="competition-page">
+
+    <!-- MAIN TITLE -->
+
+    <h1 class="page-title">Robosub 2026 Competition</h1>
+
+
+
+    <!-- ROBOSUB 2026 COMPETITION DETAILS -->
+
+      <div class="details-grid">
+        <div class="detail-card">
+          <img src="media/robosub2025-location.png" alt="Location icon" class="detail-icon">
+          <p class="detail-text">Woollett Aquatics Center in Irvine, California, USA</p>
+        </div>
+
+        <div class="detail-card">
+          <img src="media/calendaricon.png" alt="Calendar icon" class="detail-icon">
+          <p class="detail-text">July 11-16<br>2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTICIPANTS -->
+
+    <section class="attendee-gallery-section">
+      <h2 class="section-title">Participants</h2>
+
+      <div class="attendee-gallery-wrapper">
+        <div class="attendee-gallery-track">
+
+        <!-- Original Set (make sure to copy-paste this into the duplicate section whenever you update it - it will allow for a seamless transition) -->
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant12026.png" alt="Participant1" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant22026.png" alt="Participant2" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant32026.png" alt="Participant3" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant42026.png" alt="Participant4" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant52026.png" alt="Participant5" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant62026.png" alt="Participant6" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+        <!-- Duplicate Set (Copy-paste the Original Set into this section) -->
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant12026.png" alt="Participant1" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant22026.png" alt="Participant2" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant32026.png" alt="Participant3" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant42026.png" alt="Participant4" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant52026.png" alt="Participant5" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+          <div class="attendee-card">
+            <div class="attendee-name">Coming Soon</div>
+            <img src="media/participant62026.png" alt="Participant6" class="attendee-photo">
+            <div class="attendee-role">Position</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="more-team-btn-wrap">
+      <a href="about-us.html" class="more-team-btn">More AUVIC Team Members</a>
+    </div>
+
+    <!-- GOALS FOR THIS YEAR'S ROBOSUB COMPETITION -->
+
+    <section class="goals-section">
+      <h2 class="section-title">Goals for this year's Robosub competition</h2>
+
+      <div class="goals-grid">
+        <div class="goal-card">
+          <img src="media/goal1.png" alt="Goal 1 icon" class="goal-icon">
+          <p class="goal-text">To successfully prequalify for the 2026 Robosub competition and secure our place among the top teams.</p>
+        </div>
+
+        <div class="goal-card">
+          <img src="media/goal2.png" alt="Goal 2 icon" class="goal-icon">
+          <p class="goal-text">To build a submarine capable of completing every task at competition with consistency, precision, and reliability.</p>
+        </div>
+
+        <div class="goal-card">
+          <img src="media/goal3.png" alt="Goal 3 icon" class="goal-icon">
+          <p class="goal-text">To inspire the next generation of team leads to return next year and improve on the results of this year.</p>
+        </div>
+
+        <div class="goal-card">
+          <img src="media/goal4.png" alt="Goal 4 icon" class="goal-icon">
+          <p class="goal-text">To follow our competition plan closely and execute each objective effectively to achieve the highest score possible.</p>
+        </div>
+      </div>
+
+      <div class="competition-blurb">
+        <p>
+          This year the team has collaborated well to design, assemble, and code the best vehicle possible. The mechanical team has created a fully capable platform able to perform all of the required tasks at competition. The electrical team has created a bulletproof electrical system able to handle a more agile and complicated submarine. The software team has been working hard to create a reliable navigation and computer vision pipeline. Working together, the team hopes to perform at the highest level at this year's competition.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (Same on every page - copy-paste onto all pages if you make changes)-->
+
+  <footer class="footer">
+    <p>© AUVIC University of Victoria 2026</p>
+  </footer>
+
+  <!-- SEARCH SCRIPT -->
+<script>
+  const pages = [
+    {
+      title: "Home",
+      url: "index.html",
+      keywords: "home auvic autonomous underwater vehicles submarine meetings discord snappy"
+    },
+
+    {
+      title: "Snappy",
+      url: "vehicle-snappy.html",
+      keywords: "snappy 2026 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Kraken",
+      url: "vehicle-kraken.html",
+      keywords: "kraken 2025 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Trident",
+      url: "vehicle-trident.html",
+      keywords: "trident 2023 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Polaris",
+      url: "vehicle-polaris.html",
+      keywords: "polaris 2018 2019 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Red Herring",
+      url: "vehicle-redherring.html",
+      keywords: "red herring redherring 2016 2017 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Aerius",
+      url: "vehicle-aerius.html",
+      keywords: "aerius 2009 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Competition 2026",
+      url: "competition-2026.html",
+      keywords: "competition 2026 robosub california woollett aquatics center centre irvine usa goals qualify participants july"
+    },
+
+    {
+      title: "Competition 2025",
+      url: "competition-2025.html",
+      keywords: "competition 2025 robosub california woollett aquatics center centre irvine usa goals qualify participants august 29 29th results"
+    },
+
+    {
+      title: "About Us",
+      url: "about-us.html",
+      keywords: "about us team people student club admin administration lead president project manager bio members"
+    },
+
+    {
+      title: "Sponsors",
+      url: "sponsors.html",
+      keywords: "sponsor sponsors organizations organisations companies support bc ferries cewil rainhouse altium altech anodizing ltd send cut send sendcutsend donate sponsorship"
+    },
+
+    {
+      title: "Contact Us",
+      url: "contact-us.html",
+      keywords: "join connect contact countdown email discord instagram insta linked in linkedin mail mailing address location b250 meeting times"
+    },
+  ];
+
+  const searchInput = document.getElementById("siteSearchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase().trim();
+    searchResults.innerHTML = "";
+
+    if (query === "") {
+      searchResults.style.display = "none";
+      return;
+    }
+
+    const matches = pages.filter(page =>
+      page.title.toLowerCase().includes(query) ||
+      page.keywords.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = `<div class="search-no-results">No results found</div>`;
+    } else {
+      matches.forEach(page => {
+        const resultLink = document.createElement("a");
+        resultLink.href = page.url;
+        resultLink.textContent = page.title;
+        searchResults.appendChild(resultLink);
+      });
+    }
+
+    searchResults.style.display = "block";
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".site-search")) {
+      searchResults.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

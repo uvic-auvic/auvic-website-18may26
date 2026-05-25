@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUVIC | Contact Us</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.contact-page {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #111;
+      background:
+        radial-gradient(circle at top left, rgba(87,183,231,0.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(38,167,57,0.08), transparent 22%),
+        linear-gradient(to bottom, #ffffff 0%, #f8fcff 100%);
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* HEADER / NAV FIX */
+    .header {
+      position: relative;
+      z-index: 5000;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 5001;
+    }
+
+    .nav-item {
+      position: relative;
+      z-index: 5002;
+    }
+
+    .dropdown {
+      position: absolute;
+      z-index: 9999;
+    }
+
+    /* PAGE INTRO */
+    .contact-intro {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 55px 20px 20px;
+    }
+
+    .intro-shell {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .intro-main {
+      background: #002754;
+      color: white;
+      border-radius: 24px;
+      padding: 42px 36px;
+      box-shadow: 0 18px 42px rgba(0, 39, 84, 0.18);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-main::before,
+    .intro-main::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .intro-main::before {
+      width: 220px;
+      height: 220px;
+      top: -60px;
+      right: -70px;
+    }
+
+    .intro-main::after {
+      width: 140px;
+      height: 140px;
+      bottom: -40px;
+      left: -30px;
+    }
+
+    .intro-tag {
+      display: inline-block;
+      background: rgba(253, 184, 19, 0.18);
+      color: #FDB813;
+      border: 1px solid rgba(253, 184, 19, 0.35);
+      padding: 8px 14px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-main h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.08;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-main p {
+      margin: 0;
+      max-width: 760px;
+      line-height: 1.8;
+      font-size: 1.08rem;
+      color: #eef8ff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-side {
+      display: grid;
+      gap: 18px;
+    }
+
+    .highlight-card {
+      background: white;
+      border: 2px solid #57B7E7;
+      border-radius: 20px;
+      padding: 24px 22px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+
+    .highlight-card h3 {
+      margin: 0 0 10px;
+      color: #002754;
+      font-size: 1.15rem;
+    }
+
+    .highlight-card p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    .countdown-card-video {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      display: block;
+      border-radius: 14px;
+      margin: 10px 0 16px;
+      border: 2px solid #dbeffd;
+      background: white;
+    }
+
+    .countdown-timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .countdown-unit {
+      background: #f4fbff;
+      border: 2px solid #57B7E7;
+      border-radius: 14px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+
+    .countdown-number {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: #002754;
+      margin-bottom: 6px;
+    }
+
+    .countdown-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #0073BC;
+    }
+
+    .countdown-message {
+      margin-top: 10px;
+      font-weight: 700;
+      color: #002754;
+      text-align: center;
+    }
+
+    /* GENERAL SECTIONS */
+    .section-shell {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 28px 20px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #002754;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin: 0 0 14px;
+    }
+
+    .contact-title {
+      color: #FDB813;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 28px;
+      line-height: 1.75;
+    }
+
+    /* CONTACT GRID */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 14px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 2px solid #57B7E7;
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.07);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 7px;
+      background: linear-gradient(to right, #002754, #57B7E7, #26A739, #FDB813);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.11);
+    }
+
+    .contact-card h3 {
+      color: #002754;
+      margin: 0 0 14px;
+      font-size: 1.25rem;
+    }
+
+    .contact-card p,
+    .contact-card a,
+    .contact-card address {
+      margin: 0;
+      line-height: 1.8;
+      font-size: 1rem;
+      color: #111;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      color: #0073BC;
+    }
+
+    .contact-card address {
+      font-style: normal;
+    }
+
+    /* MEETING TIMES */
+    .meeting-section {
+      padding-top: 65px;
+    }
+
+    .meeting-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .meeting-card {
+      text-align: center;
+      background: white;
+      padding: 24px 18px;
+      border-radius: 18px;
+      border: 2px solid #57B7E7;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .meeting-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 28px rgba(0,0,0,0.10);
+    }
+
+    .meeting-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 14px;
+      border-radius: 10px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .meeting-card h3 {
+      color: #002754;
+      font-size: 1.02rem;
+      margin: 0 0 10px;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .meeting-card p {
+      margin: 0;
+      line-height: 1.6;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    /* DISCORD CTA */
+    .discord-cta {
+      margin-top: 34px;
+      background: linear-gradient(135deg, #002754 0%, #003d73 100%);
+      color: white;
+      border-radius: 24px;
+      padding: 34px 26px;
+      text-align: center;
+      box-shadow: 0 16px 34px rgba(0,39,84,0.18);
+    }
+
+    .discord-cta h3 {
+      margin: 0 0 12px;
+      font-size: 1.7rem;
+      color: white;
+    }
+
+    .discord-cta p {
+      margin: 0 auto 18px;
+      max-width: 720px;
+      line-height: 1.8;
+      color: #eef8ff;
+    }
+
+    .discord-cta .action-btn {
+      margin: 0 auto;
+    }
+
+    /* BUTTONS */
+    .discord-btn,
+    .action-btn,
+    .modal-link-btn {
+      display: inline-block;
+      background: #0073BC;
+      color: white;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Open Sans', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .discord-btn:hover,
+    .action-btn:hover,
+    .modal-link-btn:hover {
+      background: #57B7E7;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .discord-btn:active,
+    .action-btn:active,
+    .modal-link-btn:active {
+      background: #26A739;
+      color: white;
+    }
+
+    /* ACTION BUTTONS */
+    .action-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1100px;
+      margin: 32px auto 0;
+      padding: 0 20px;
+    }
+
+    .action-btn {
+      display: block;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-size: 1rem;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 20, 40, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 20000;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+      background: white;
+      max-width: 560px;
+      width: 100%;
+      border-radius: 18px;
+      padding: 34px 28px 26px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.22);
+      text-align: center;
+    }
+
+    .modal-box h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #002754;
+      font-size: 1.8rem;
+    }
+
+    .modal-box p {
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    .modal-close-x {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      color: #002754;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      padding: 24px 20px;
+      background: #002754;
+      color: white;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1080px) {
+      .intro-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .meeting-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid,
+      .action-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .contact-intro {
+        padding-top: 34px;
+      }
+
+      .intro-main {
+        padding: 30px 22px;
+      }
+
+      .contact-card,
+      .highlight-card {
+        padding: 24px 18px;
+      }
+
+      .meeting-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .meeting-card h3 {
+        min-height: auto;
+      }
+
+      .discord-cta {
+        padding: 26px 18px;
+      }
+
+      .modal-box {
+        padding: 28px 20px 22px;
+      }
+
+      .countdown-timer {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body class="contact-page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <img src="media/auvic-logo-white.png" alt="AUVIC logo" class="logo">
+
+    <div class="title">
+      <a href="index.html">AUVIC: Autonomous Underwater Vehicles</a>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="#">Vehicles</a>
+        <div class="dropdown">
+          <a href="vehicle-snappy.html">Snappy 2026</a>
+          <a href="vehicle-kraken.html">Kraken 2024 & 2025</a>
+          <a href="vehicle-trident.html">Trident 2023</a>
+          <a href="vehicle-polaris.html">Polaris 2018 & 2019</a>
+          <a href="vehicle-redherring.html">Red Herring 2016 & 2017</a>
+          <a href="vehicle-aerius.html">Aerius 2009</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#">Competitions</a>
+        <div class="dropdown">
+          <a href="competition-2026.html">2026</a>
+          <a href="competition-2025.html">2025</a>
+        </div>
+      </div>
+
+      <a href="about-us.html">About Us</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact-us.html" class="active-page">Contact Us</a>
+
+      <div class="site-search">
+        <input type="text" id="siteSearchInput" placeholder="Search..." autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- INTRO -->
+  <section class="contact-intro">
+    <div class="intro-shell">
+      <div class="intro-main">
+        <div class="intro-tag">CONTACT AUVIC</div>
+        <h1>Come by, message us, or jump into the team chat.</h1>
+        <p>
+          Whether you want to join AUVIC, ask a question, or stop by to see what the team is building,
+          this page has everything you need — where to find us, when we meet, and how to connect.
+        </p>
+      </div>
+
+      <div class="intro-side">
+        <div class="highlight-card" id="countdownCard">
+          <h3>Countdown Until the 2026 Robosub Competition</h3>
+
+          <video
+            class="countdown-card-video"
+            id="countdownVideo"
+            autoplay
+            muted
+            loop
+            playsinline
+          >
+            <source src="media/robosub-countdown.mp4" type="video/mp4">
+          </video>
+
+          <div class="countdown-timer" id="countdownTimer">
+            <div class="countdown-unit">
+              <span class="countdown-number" id="days">0</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="hours">0</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="minutes">0</span>
+              <span class="countdown-label">Minutes</span>
+            </div>
+            <div class="countdown-unit">
+              <span class="countdown-number" id="seconds">0</span>
+              <span class="countdown-label">Seconds</span>
+            </div>
+          </div>
+
+          <p class="countdown-message" id="countdownMessage" style="display: none;">
+            Competition day has arrived!
+          </p>
+        </div>
+
+        <div class="highlight-card">
+          <h3>Robosub 2026 Competition</h3>
+          <p>
+            Date: July 11-16, 2026 <br>
+            Location: Woollett Aquatics Center in Irvine, California, USA
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO -->
+   
+<section class="section-shell">
+  <h2 class="section-title contact-title">Contact Information</h2>
+  <p class="section-intro">
+    Here's all the information you need to reach AUVIC, visit in person, or connect with the team online.
+  </p>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Email</h3>
+      <p>
+        <a href="mailto:engauvic@gmail.com">engauvic@gmail.com</a>
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Discord Link</h3>
+      <p>
+        <a href="https://discord.gg/dJ8F5ZGKed" target="_blank" rel="noopener noreferrer">
+          https://discord.gg/dJ8F5ZGKed
+        </a>
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Instagram</h3>
+      <p>
+        <a href="https://www.instagram.com/engrauvic/" target="_blank" rel="noopener noreferrer">
+          https://www.instagram.com/engrauvic/
+        </a>
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h3>LinkedIn</h3>
+      <p>
+        <a href="https://www.linkedin.com/company/auvic-uvic/" target="_blank" rel="noopener noreferrer">
+          https://www.linkedin.com/company/auvic-uvic/
+        </a>
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Mailing Address</h3>
+      <address>
+        AUVIC Engineering Deans Office<br>
+        Faculty of Engineering - University of Victoria<br>
+        3800 Finnerty Rd<br>
+        EOW 248 Victoria
+      </address>
+    </div>
+
+    <div class="contact-card">
+      <h3>Location</h3>
+      <p>
+        AUVIC is located on the second floor of the Engineering Lab Wing (ELW) <strong>room B250</strong>.
+        Feel free to drop by during school hours.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- MEETING TIMES -->
+  <section class="section-shell meeting-section">
+    <h2 class="section-title">Meeting Times</h2>
+    <p class="section-intro">
+      New members are always welcome. Stop by a meeting, meet the team, and see what part of AUVIC you want to get involved with.
+    </p>
+
+    <div class="meeting-grid">
+      <div class="meeting-card">
+        <img src="media/generalmeetingicon.png" alt="General meeting icon" class="meeting-icon">
+        <h3>General Meeting</h3>
+        <p>Bi-Weekly Monday<br>6:00 PM</p>
+      </div>
+
+      <div class="meeting-card">
+        <img src="media/electricalmeetingicon.png" alt="Electrical meeting icon" class="meeting-icon">
+        <h3>Electrical Team Meeting</h3>
+        <p>Weekly Wednesday<br>6:00 PM</p>
+      </div>
+
+      <div class="meeting-card">
+        <img src="media/mechanicalmeetingicon.png" alt="Mechanical meeting icon" class="meeting-icon">
+        <h3>Mechanical Team Meeting</h3>
+        <p>Weekly Monday<br>5:00 PM</p>
+      </div>
+
+      <div class="meeting-card">
+        <img src="media/softwaremeetingicon.png" alt="Software meeting icon" class="meeting-icon">
+        <h3>Software Team Meeting</h3>
+        <p>Weekly Wednesday<br>7:00 PM</p>
+      </div>
+    </div>
+
+    <div class="discord-cta">
+      <h3>How to Join</h3>
+      <p>
+        To join AUVIC, students just need to join the Discord and attend a meeting. That's it — come say hi, meet the team, and get involved. You do not need to have everything figured out before you show up.
+      </p>
+      <button class="action-btn" id="openJoinModal">More information</button>
+    </div>
+  </section>
+
+  <!-- ACTION BUTTONS -->
+  <section class="action-buttons">
+    <a href="index.html" class="action-btn">Back to Home</a>
+    <a href="about-us.html" class="action-btn">Meet the Team</a>
+    <a href="sponsors.html" class="action-btn">Sponsors</a>
+  </section>
+
+  <!-- JOIN MODAL -->
+  <div class="modal" id="joinModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
+      <button class="modal-close-x" id="closeJoinModalX" aria-label="Close popup">&times;</button>
+      <h3 id="joinModalTitle">How to Join AUVIC</h3>
+      <p>
+        Join the Discord, come to a meeting, and introduce yourself. That's the easiest way to get started with AUVIC.
+      </p>
+      <a href="https://discord.gg/dJ8F5ZGKed" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
+        Join the Discord
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© AUVIC University of Victoria 2026</p>
+  </footer>
+
+  <!-- MODAL SCRIPT -->
+  <script>
+    const joinModal = document.getElementById('joinModal');
+    const openJoinModal = document.getElementById('openJoinModal');
+    const closeJoinModalX = document.getElementById('closeJoinModalX');
+
+    function openModal() {
+      joinModal.classList.add('show');
+      joinModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      joinModal.classList.remove('show');
+      joinModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    openJoinModal.addEventListener('click', openModal);
+    closeJoinModalX.addEventListener('click', closeModal);
+
+    joinModal.addEventListener('click', (event) => {
+      if (event.target === joinModal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && joinModal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+
+    const countdownVideo = document.getElementById('countdownVideo');
+    const countdownCard = document.getElementById('countdownCard');
+    const countdownTimer = document.getElementById('countdownTimer');
+    const countdownMessage = document.getElementById('countdownMessage');
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    countdownCard.addEventListener('mouseenter', () => {
+      countdownVideo.pause();
+    });
+
+    countdownCard.addEventListener('mouseleave', () => {
+      countdownVideo.play();
+    });
+
+    const targetDate = new Date('2026-07-11T00:00:00-08:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        daysEl.textContent = '0';
+        hoursEl.textContent = '0';
+        minutesEl.textContent = '0';
+        secondsEl.textContent = '0';
+        countdownTimer.style.display = 'none';
+        countdownMessage.style.display = 'block';
+        clearInterval(countdownInterval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = hours;
+      minutesEl.textContent = minutes;
+      secondsEl.textContent = seconds;
+    }
+
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+  </script>
+
+<!-- SEARCH SCRIPT -->
+<script>
+  const pages = [
+    {
+      title: "Home",
+      url: "index.html",
+      keywords: "home auvic autonomous underwater vehicles submarine meetings discord snappy"
+    },
+
+    {
+      title: "Snappy",
+      url: "vehicle-snappy.html",
+      keywords: "snappy 2026 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Kraken",
+      url: "vehicle-kraken.html",
+      keywords: "kraken 2025 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Trident",
+      url: "vehicle-trident.html",
+      keywords: "trident 2023 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Polaris",
+      url: "vehicle-polaris.html",
+      keywords: "polaris 2018 2019 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Red Herring",
+      url: "vehicle-redherring.html",
+      keywords: "red herring redherring 2016 2017 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Aerius",
+      url: "vehicle-aerius.html",
+      keywords: "aerius 2009 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Competition 2026",
+      url: "competition-2026.html",
+      keywords: "competition 2026 robosub california woollett aquatics center centre irvine usa goals qualify participants july"
+    },
+
+    {
+      title: "Competition 2025",
+      url: "competition-2025.html",
+      keywords: "competition 2025 robosub california woollett aquatics center centre irvine usa goals qualify participants august 29 29th results"
+    },
+
+    {
+      title: "About Us",
+      url: "about-us.html",
+      keywords: "about us team people student club admin administration lead president project manager bio members"
+    },
+
+    {
+      title: "Sponsors",
+      url: "sponsors.html",
+      keywords: "sponsor sponsors organizations organisations companies support bc ferries cewil rainhouse altium altech anodizing ltd send cut send sendcutsend donate sponsorship"
+    },
+
+    {
+      title: "Contact Us",
+      url: "contact-us.html",
+      keywords: "join connect contact countdown email discord instagram insta linked in linkedin mail mailing address location b250 meeting times"
+    },
+  ];
+
+  const searchInput = document.getElementById("siteSearchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase().trim();
+    searchResults.innerHTML = "";
+
+    if (query === "") {
+      searchResults.style.display = "none";
+      return;
+    }
+
+    const matches = pages.filter(page =>
+      page.title.toLowerCase().includes(query) ||
+      page.keywords.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = `<div class="search-no-results">No results found</div>`;
+    } else {
+      matches.forEach(page => {
+        const resultLink = document.createElement("a");
+        resultLink.href = page.url;
+        resultLink.textContent = page.title;
+        searchResults.appendChild(resultLink);
+      });
+    }
+
+    searchResults.style.display = "block";
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".site-search")) {
+      searchResults.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aerius | AUVIC</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* FULL WIDTH MOVING GALLERY */
+
+    .moving-gallery-section {
+      margin: 60px 0;
+      position: relative;
+
+      /* THIS MAKES IT FULL WIDTH */
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .moving-gallery-section h2 {
+      text-align: center;
+      color: #002754;
+      margin-bottom: 20px;
+    }
+
+    .moving-gallery-wrapper {
+      overflow: hidden;
+      width: 100%;
+      background: #f7f9fc;
+      padding: 20px 0;
+    }
+
+    .moving-gallery-track {
+      display: flex;
+      width: max-content;
+      gap: 20px;
+      animation: scrollGallery 160s linear infinite;
+    }
+
+    .moving-gallery-wrapper:hover .moving-gallery-track {
+      animation-play-state: paused;
+    }
+
+    .moving-gallery-track img {
+      height: 280px;
+      border-radius: 10px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+
+    @keyframes scrollGallery {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .moving-gallery-track img {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <img src="media/auvic-logo-white.png" alt="AUVIC logo" class="logo">
+
+  <div class="title">
+    <a href="index.html">AUVIC: Autonomous Underwater Vehicles</a>
+  </div>
+
+  <nav class="nav">
+        <div class="nav-item">
+            <a href="#">Vehicles</a>
+            <div class="dropdown">
+                <a href="vehicle-snappy.html">Snappy 2026</a>
+                <a href="vehicle-kraken.html">Kraken 2025</a>
+                <a href="vehicle-trident.html">Trident 2023</a>
+                <a href="vehicle-polaris.html">Polaris 2018 & 2019</a>
+                <a href="vehicle-redherring.html">Red Herring 2016 & 2017</a>
+                <a class="active-page" href="vehicle-aerius.html">Aerius 2009</a>
+            </div>
+        </div>
+
+    <div class="nav-item">
+      <a href="#">Competitions</a>
+      <div class="dropdown">
+        <a href="competition-2026.html">2026</a>
+        <a href="competition-2025.html">2025</a>
+      </div>
+    </div>
+
+    <a href="about-us.html">About Us</a>
+    <a href="sponsors.html">Sponsors</a>
+    <a href="contact-us.html">Contact Us</a>
+
+    <div class="site-search">
+      <input type="text" id="siteSearchInput" placeholder="Search..." autocomplete="off">
+      <div id="searchResults" class="search-results"></div>
+    </div>
+
+  </nav>
+</header>
+
+<!-- MAIN -->
+<main class="vehicle-page">
+
+  <!-- HERO -->
+  <section class="vehicle-hero">
+    <h1 class="page-title">Aerius</h1>
+    <img src="media/aerius-main.png" alt="Aerius vehicle" class="vehicle-main-image">
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section class="vehicle-description">
+    <h2>About the Aerius</h2>
+    <p>
+      The Aerius platform employed a cast urethane outer hull to hold a set of inner hulls which housed the vehicle's operational components.
+    </p>
+  </section>
+
+  <!-- ACCORDION -->
+  <section class="accordion-section">
+
+    <button class="accordion">Computer</button>
+    <div class="panel">
+      <p>Advanced Digital Logic PC104 stack</p>
+    </div>
+
+    <button class="accordion">Propulsion</button>
+    <div class="panel">
+      <p>4 Seabotix brushless RS485 thrusters</p>
+    </div>
+
+    <button class="accordion">Power</button>
+    <div class="panel">
+      <p>Custom 28V prismatic lithium battery pack</p>
+    </div>
+
+    <button class="accordion">Sensors</button>
+    <div class="panel">
+      <p>
+        Firewire camera <br><br>
+        IMU/compass <br><br>
+        Doppler velocity logger <br><br>
+        Hydrophone array <br><br>
+        Pressure sensor
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- FULL WIDTH GALLERY -->
+<section class="moving-gallery-section">
+  <h2>Images</h2>
+
+  <div class="moving-gallery-wrapper">
+    <div class="moving-gallery-track">
+
+      <!-- ORIGINAL SET -->
+      <img src="media/aerius1.png">
+      <img src="media/aerius2.png">
+      <img src="media/aerius3.png">
+      <img src="media/aerius4.png">
+      <img src="media/aerius5.png">
+      <img src="media/aerius6.png">
+      <img src="media/aerius7.png">
+      <img src="media/aerius8.png">
+      <img src="media/aerius9.png">
+      <img src="media/aerius10.png">
+      <img src="media/aerius11.png">
+      <img src="media/aerius12.png">
+      <img src="media/aerius13.png">
+      <img src="media/aerius14.png">
+      <img src="media/aerius15.png">
+      <img src="media/aerius16.png">
+      <img src="media/aerius17.png">
+      <img src="media/aerius18.png">
+      <img src="media/aerius19.png">
+      <img src="media/aerius20.png">
+
+      <!-- DUPLICATE SET (for seamless loop) -->
+      <img src="media/aerius1.png">
+      <img src="media/aerius2.png">
+      <img src="media/aerius3.png">
+      <img src="media/aerius4.png">
+      <img src="media/aerius5.png">
+      <img src="media/aerius6.png">
+      <img src="media/aerius7.png">
+      <img src="media/aerius8.png">
+      <img src="media/aerius9.png">
+      <img src="media/aerius10.png">
+      <img src="media/aerius11.png">
+      <img src="media/aerius12.png">
+      <img src="media/aerius13.png">
+      <img src="media/aerius14.png">
+      <img src="media/aerius15.png">
+      <img src="media/aerius16.png">
+      <img src="media/aerius17.png">
+      <img src="media/aerius18.png">
+      <img src="media/aerius19.png">
+      <img src="media/aerius20.png">
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© AUVIC University of Victoria 2026</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+  const accordions = document.querySelectorAll(".accordion");
+
+  accordions.forEach(button => {
+    button.addEventListener("click", () => {
+      const panel = button.nextElementSibling;
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
+
+<!-- SEARCH SCRIPT -->
+<script>
+  const pages = [
+    {
+      title: "Home",
+      url: "index.html",
+      keywords: "home auvic autonomous underwater vehicles submarine meetings discord snappy"
+    },
+
+    {
+      title: "Snappy",
+      url: "vehicle-snappy.html",
+      keywords: "snappy 2026 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Kraken",
+      url: "vehicle-kraken.html",
+      keywords: "kraken 2025 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Trident",
+      url: "vehicle-trident.html",
+      keywords: "trident 2023 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Polaris",
+      url: "vehicle-polaris.html",
+      keywords: "polaris 2018 2019 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Red Herring",
+      url: "vehicle-redherring.html",
+      keywords: "red herring redherring 2016 2017 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Aerius",
+      url: "vehicle-aerius.html",
+      keywords: "aerius 2009 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Competition 2026",
+      url: "competition-2026.html",
+      keywords: "competition 2026 robosub california woollett aquatics center centre irvine usa goals qualify participants july"
+    },
+
+    {
+      title: "Competition 2025",
+      url: "competition-2025.html",
+      keywords: "competition 2025 robosub california woollett aquatics center centre irvine usa goals qualify participants august 29 29th results"
+    },
+
+    {
+      title: "About Us",
+      url: "about-us.html",
+      keywords: "about us team people student club admin administration lead president project manager bio members"
+    },
+
+    {
+      title: "Sponsors",
+      url: "sponsors.html",
+      keywords: "sponsor sponsors organizations organisations companies support bc ferries cewil rainhouse altium altech anodizing ltd send cut send sendcutsend donate sponsorship"
+    },
+
+    {
+      title: "Contact Us",
+      url: "contact-us.html",
+      keywords: "join connect contact countdown email discord instagram insta linked in linkedin mail mailing address location b250 meeting times"
+    },
+  ];
+
+  const searchInput = document.getElementById("siteSearchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase().trim();
+    searchResults.innerHTML = "";
+
+    if (query === "") {
+      searchResults.style.display = "none";
+      return;
+    }
+
+    const matches = pages.filter(page =>
+      page.title.toLowerCase().includes(query) ||
+      page.keywords.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = `<div class="search-no-results">No results found</div>`;
+    } else {
+      matches.forEach(page => {
+        const resultLink = document.createElement("a");
+        resultLink.href = page.url;
+        resultLink.textContent = page.title;
+        searchResults.appendChild(resultLink);
+      });
+    }
+
+    searchResults.style.display = "block";
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".site-search")) {
+      searchResults.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

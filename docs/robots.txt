@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://auvic.ca/sitemap.xml

@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://auvic.ca/sitemap.xml
-Sitemap: https://www.auvic.ca/sitemap.xml

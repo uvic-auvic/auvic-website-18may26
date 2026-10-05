@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | AUVIC</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    .about-page {
+      padding: 40px 20px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      color: #FDB813;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2.2rem;
+    }
+
+    .team-photo {
+      width: 85%;
+      max-width: 850px;
+      display: block;
+      margin: 0 auto 30px;
+      border-radius: 10px;
+    }
+
+    .team-blurb {
+      max-width: 900px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-title {
+      color: #002754;
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+    }
+
+    .lead-gallery-section {
+      margin-bottom: 50px;
+    }
+
+    .lead-gallery-wrapper {
+      overflow: hidden;
+      width: 100%;
+      background: #f7f9fc;
+      border-radius: 12px;
+      padding: 25px 0;
+    }
+
+    .lead-gallery-track {
+      display: flex;
+      width: max-content;
+      gap: 24px;
+      animation: scrollLeads 45s linear infinite;
+      align-items: stretch;
+    }
+
+    .lead-gallery-wrapper:hover .lead-gallery-track {
+      animation-play-state: paused;
+    }
+
+    .lead-card {
+      width: 260px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lead-name {
+      background: #0073BC;
+      color: white;
+      text-align: center;
+      padding: 14px 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .lead-photo {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .lead-info {
+      background: #0073BC;
+      color: white;
+      text-align: center;
+      padding: 18px 15px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .lead-role {
+      font-weight: 600;
+    }
+
+    .learn-more-btn {
+      background: #FDB813;
+      color: #002754;
+      border: none;
+      padding: 10px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .learn-more-btn:hover {
+      background: #26A739;
+      color: white;
+    }
+
+    .learn-more-btn:active {
+      background: #57B7E7;
+      color: white;
+    }
+
+    @keyframes scrollLeads {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .team-dropdowns {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .team-list-panel {
+      display: none;
+      background: #f5f5f5;
+      padding: 18px 22px;
+      border-left: 4px solid #002754;
+    }
+
+    .team-list-panel ul {
+      padding-left: 18px;
+    }
+
+    .team-list-panel li {
+      margin-bottom: 8px;
+    }
+
+    /* POPUP STYLES */
+    .popup-modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .popup-content {
+      background: white;
+      width: 100%;
+      max-width: 450px;
+      border-radius: 14px;
+      padding: 30px 25px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #002754;
+      line-height: 1;
+    }
+
+    .popup-name {
+      color: #002754;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .popup-role {
+      color: #0073BC;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .popup-description {
+      color: #222;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .lead-card {
+        width: 220px;
+      }
+
+      .lead-photo {
+        height: 230px;
+      }
+
+      .team-photo {
+        width: 95%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="header">
+    <img src="media/auvic-logo-white.png" alt="AUVIC logo" class="logo">
+
+    <div class="title">
+      <a href="index.html">AUVIC: Autonomous Underwater Vehicles</a>
+    </div>
+
+    <nav class="nav">
+        <div class="nav-item">
+            <a href="#">Vehicles</a>
+            <div class="dropdown">
+                <a href="vehicle-snappy.html">Snappy 2026</a>
+                <a href="vehicle-kraken.html">Kraken 2025</a>
+                <a href="vehicle-trident.html">Trident 2023</a>
+                <a href="vehicle-polaris.html">Polaris 2018 & 2019</a>
+                <a href="vehicle-redherring.html">Red Herring 2016 & 2017</a>
+                <a href="vehicle-aerius.html">Aerius 2009</a>
+            </div>
+        </div>
+
+      <div class="nav-item">
+        <a href="#">Competitions</a>
+        <div class="dropdown">
+          <a href="competition-2026.html">2026</a>
+          <a href="competition-2025.html">2025</a>
+        </div>
+      </div>
+
+      <a class="active-page" href="about-us.html">About Us</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact-us.html">Contact Us</a>
+
+      <div class="site-search">
+        <input type="text" id="siteSearchInput" placeholder="Search..." autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+
+  <main class="about-page">
+
+    <h1 class="page-title">AUVIC 2026 Team</h1>
+
+    <img src="media/team2026.png" alt="AUVIC 2026 team photo" class="team-photo">
+
+    <section class="team-blurb">
+      <p>
+        AUVIC is a student team at the University of Victoria dedicated to designing, building, and improving autonomous underwater vehicles. Our members collaborate across mechanical, software, and electrical systems to develop vehicles for competition, hands-on learning, and innovative underwater problem-solving. The team works together on design, testing, research, troubleshooting, and team operations throughout the year.
+      </p>
+    </section>
+
+    <section class="lead-gallery-section">
+      <h2 class="section-title">Admin & Team Leads</h2>
+
+      <div class="lead-gallery-wrapper">
+        <div class="lead-gallery-track">
+
+          <!-- FIRST SET (must be the same as the second set - so copy-paste if you make changes)-->
+
+          <div class="lead-card">
+            <div class="lead-name">Renata Kamel</div>
+            <img src="media/renatakamel2026.png" alt="President" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">President</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-renata')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Marcus Ganz</div>
+            <img src="media/marcusganz2026.png" alt="Project Manager" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Project Manager</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-marcus')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Isaac Bergstrom</div>
+            <img src="media/isaacbergstrom2026.png" alt="Mechanical Team Lead" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Mechanical Team Lead</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-isaac')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Matthew Atagi</div>
+            <img src="media/matthewatagi2026.png" alt="Electical Team Lead" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Electrical Team Lead</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-matthew')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Ethan Logeman-Dean</div>
+            <img src="media/ethanlogemandean2026.png" alt="Software Team Lead" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Software Team Lead</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-ethan')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Aislinn Low</div>
+            <img src="media/aislinnlow2026.png" alt="Treasurer" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Treasurer</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-aislinn')">Learn More</button>
+            </div>
+          </div>
+
+          <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+
+          <div class="lead-card">
+            <div class="lead-name">Renata Kamel</div>
+            <img src="media/renatakamel2026.png" alt="President" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">President</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-renata')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Marcus Ganz</div>
+            <img src="media/marcusganz2026.png" alt="Project Manager" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Project Manager</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-marcus')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Isaac Bergstrom</div>
+            <img src="media/isaacbergstrom2026.png" alt="Mechanical Team Lead" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Mechanical Team Lead</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-isaac')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Matthew Atagi</div>
+            <img src="media/matthewatagi2026.png" alt="Electical Team Lead" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Electrical Team Lead</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-matthew')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Ethan Logeman-Dean</div>
+            <img src="media/ethanlogemandean2026.png" alt="Software Team Lead" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Software Team Lead</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-ethan')">Learn More</button>
+            </div>
+          </div>
+
+          <div class="lead-card">
+            <div class="lead-name">Aislinn Low</div>
+            <img src="media/aislinnlow2026.png" alt="Treasurer" class="lead-photo">
+            <div class="lead-info">
+              <div class="lead-role">Treasurer</div>
+              <button class="learn-more-btn" onclick="openPopup('popup-aislinn')">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAMES OF THE REST OF AUVIC TEAM MEMBERS -->
+
+    <section class="team-dropdowns">
+      <button class="accordion">Electrical Team Members</button>
+      <div class="team-list-panel">
+        <ul>
+          <li>Matthew Atagi</li>
+          <li>Sierra Burjaw</li>
+          <li>Jacob de Zwart</li>
+          <li>Tara Golonka</li>
+          <li>Nick Martini</li>
+          <li>Charlie McKimm</li>
+        </ul>
+      </div>
+
+      <button class="accordion">Mechanical Team Members</button>
+      <div class="team-list-panel">
+        <ul></ul>
+          <li>Isaac Bergstrom</li>
+          <li>Jack Davis</li>
+          <li>Sierra Gibson</li>
+          <li>Macy Hughes</li>
+          <li>Renata Kamel</li>
+          <li>Gerrit Kuipers</li>
+          <li>Oscar Oregan</li>
+          <li>Kieran Schmidtke</li>
+          <li>Devin Woudenberg</li>
+        </ul>
+      </div>
+
+      <button class="accordion">Software Team Members</button>
+      <div class="team-list-panel">
+        <ul>
+          <li>Spencer Cockburn</li>
+          <li>Ethan Dean</li>
+          <li>Aryan Dubay</li>
+          <li>Marcus Ganz</li>
+          <li>Ty Jacobi</li>
+          <li>Steve Anil John</li>
+          <li>Andrew Kehler</li>
+          <li>Aislinn Low</li>
+          <li>Liam Tanner</li>
+          <li>Jennifer Vlaar</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- POPUPS -->
+
+  <div id="popup-renata" class="popup-modal">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('popup-renata')">&times;</button>
+      <div class="popup-name">Renata Kamel</div>
+      <div class="popup-role">President</div>
+      <div class="popup-description">Renata is a fourth year Mechanical Engineering student with a particular interest in underwater robotics. As President of the club, she leads the administrative team, coordinates project direction and oversees team operations. In her additional role as Chief Machinist, she ensures that designs are manufacturable and efficiently produced for the team's subsystems.</div>
+    </div>
+  </div>
+
+  <div id="popup-marcus" class="popup-modal">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('popup-marcus')">&times;</button>
+      <div class="popup-name">Marcus Ganz</div>
+      <div class="popup-role">Project Manager</div>
+      <div class="popup-description">More information coming soon.</div>
+    </div>
+  </div>
+
+  <div id="popup-isaac" class="popup-modal">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('popup-isaac')">&times;</button>
+      <div class="popup-name">Isaac Bergstrom</div>
+      <div class="popup-role">Mechanical Team Lead</div>
+      <div class="popup-description">Isaac is a fifth year Mechanical Engineering student with a passion for robotics and marine engineering. He loves spending his spare time outdoors hiking, surfing, mountain biking and anything else outside. Isaac designed the new frame for the submarine as well as helping to guide the design and implementation of the various pieces of mission equipment..</div>
+    </div>
+  </div>
+
+  <div id="popup-matthew" class="popup-modal">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('popup-matthew')">&times;</button>
+      <div class="popup-name">Matthew Atagi</div>
+      <div class="popup-role">Electrical Team Lead</div>
+      <div class="popup-description">More information coming soon.</div>
+    </div>
+  </div>
+
+  <div id="popup-ethan" class="popup-modal">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('popup-ethan')">&times;</button>
+      <div class="popup-name">Ethan Logeman-Dean</div>
+      <div class="popup-role">Software Team Lead</div>
+      <div class="popup-description">Ethan is a fifth year Computer Science student with an interest in software architecture and control systems. He leads the software team and guides development of each system. Ethan designed the system architecture of the current AUV and is developing the mission planner.</div>
+    </div>
+  </div>
+
+  <div id="popup-aislinn" class="popup-modal">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup('popup-aislinn')">&times;</button>
+      <div class="popup-name">Aislinn Low</div>
+      <div class="popup-role">Treasurer</div>
+      <div class="popup-description">Aislinn is a second year Computer Science student with a passion for technology and programming.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© AUVIC University of Victoria 2026</p>
+  </footer>
+
+  <script>
+    const accordions = document.querySelectorAll(".accordion");
+
+    accordions.forEach(button => {
+      button.addEventListener("click", () => {
+        const panel = button.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    });
+
+    function openPopup(popupId) {
+      document.getElementById(popupId).style.display = "flex";
+    }
+
+    function closePopup(popupId) {
+      document.getElementById(popupId).style.display = "none";
+    }
+
+    window.addEventListener("click", function (event) {
+      const popups = document.querySelectorAll(".popup-modal");
+      popups.forEach(popup => {
+        if (event.target === popup) {
+          popup.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+  <!-- SEARCH SCRIPT -->
+  <script>
+    const pages = [
+      {
+        title: "Home",
+        url: "index.html",
+        keywords: "home auvic autonomous underwater vehicles submarine meetings discord snappy"
+      },
+
+      {
+        title: "Snappy",
+        url: "vehicle-snappy.html",
+        keywords: "snappy 2026 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Kraken",
+        url: "vehicle-kraken.html",
+        keywords: "kraken 2025 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Trident",
+        url: "vehicle-trident.html",
+        keywords: "trident 2023 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Polaris",
+        url: "vehicle-polaris.html",
+        keywords: "polaris 2018 2019 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Red Herring",
+        url: "vehicle-redherring.html",
+        keywords: "red herring redherring 2016 2017 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Aerius",
+        url: "vehicle-aerius.html",
+        keywords: "aerius 2009 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Competition 2026",
+        url: "competition-2026.html",
+        keywords: "competition 2026 robosub california woollett aquatics center centre irvine usa goals qualify participants july"
+      },
+
+      {
+        title: "Competition 2025",
+        url: "competition-2025.html",
+        keywords: "competition 2025 robosub california woollett aquatics center centre irvine usa goals qualify participants august 29 29th results"
+      },
+
+      {
+        title: "About Us",
+        url: "about-us.html",
+        keywords: "about us team people student club admin administration lead president project manager bio members"
+      },
+
+      {
+        title: "Sponsors",
+        url: "sponsors.html",
+        keywords: "sponsor sponsors organizations organisations companies support bc ferries cewil rainhouse altium altech anodizing ltd send cut send sendcutsend donate sponsorship"
+      },
+
+      {
+        title: "Contact Us",
+        url: "contact-us.html",
+        keywords: "join connect contact countdown email discord instagram insta linked in linkedin mail mailing address location b250 meeting times"
+      },
+
+      /* include more pages below (if needed) */
+
+    ];
+
+    const searchInput = document.getElementById("siteSearchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    searchInput.addEventListener("input", function () {
+      const query = searchInput.value.toLowerCase().trim();
+      searchResults.innerHTML = "";
+
+      if (query === "") {
+        searchResults.style.display = "none";
+        return;
+      }
+
+      const matches = pages.filter(page =>
+        page.title.toLowerCase().includes(query) ||
+        page.keywords.toLowerCase().includes(query)
+      );
+
+      if (matches.length === 0) {
+        searchResults.innerHTML = `<div class="search-no-results">No results found</div>`;
+      } else {
+        matches.forEach(page => {
+          const resultLink = document.createElement("a");
+          resultLink.href = page.url;
+          resultLink.textContent = page.title;
+          searchResults.appendChild(resultLink);
+        });
+      }
+
+      searchResults.style.display = "block";
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".site-search")) {
+        searchResults.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>

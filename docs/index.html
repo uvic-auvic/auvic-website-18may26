@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUVIC | Autonomous Underwater Vehicles</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.home-page {
+      margin: 0;
+      padding-bottom: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #111;
+      background: #ffffff;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* HEADER / NAV FIX */
+    .header {
+      position: relative;
+      z-index: 5000;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 5001;
+    }
+
+    .nav-item {
+      position: relative;
+      z-index: 5002;
+    }
+
+    .dropdown {
+      position: absolute;
+      z-index: 9999;
+    }
+
+    /* HERO */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      min-height: 78vh;
+      overflow: hidden;
+      background: #002754;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-fallback {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(87,183,231,0.20), transparent 30%),
+        radial-gradient(circle at 80% 35%, rgba(255,255,255,0.10), transparent 25%),
+        linear-gradient(to bottom, rgba(0,39,84,0.35), rgba(0,39,84,0.75));
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 1000px;
+    }
+
+    .hero-overlay h1 {
+      margin: 0;
+      color: white;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.15;
+      text-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    }
+
+    .hero-overlay p {
+      margin: 18px auto 0;
+      color: #eef8ff;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    /* GENERAL SECTION STYLES */
+    .section-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 70px 20px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #002754;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin: 0 0 18px;
+    }
+
+    .section-intro {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 30px;
+      line-height: 1.7;
+    }
+
+    /* MEETING TIMES */
+    .meeting-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      margin-top: 26px;
+    }
+
+    .meeting-card {
+      text-align: center;
+      background: transparent;
+      padding: 22px 18px;
+      border-radius: 12px;
+      border: 2px solid #57B7E7;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .meeting-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .meeting-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 14px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .meeting-card h3 {
+      color: #002754;
+      font-size: 1.05rem;
+      margin: 0 0 10px;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .meeting-card p {
+      margin: 0;
+      line-height: 1.6;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    /* DISCORD CTA */
+    .discord-cta {
+      margin-top: 34px;
+      background: #002754;
+      color: white;
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .discord-cta-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.55rem;
+      color: white;
+    }
+
+    .discord-cta-content p {
+      margin: 0 0 18px;
+      line-height: 1.7;
+      font-size: 1.02rem;
+    }
+
+    /* STANDARD SITE BUTTON STYLE */
+    .discord-btn,
+    .home-btn,
+    .action-btn,
+    .snappy-link-btn,
+    .modal-link-btn,
+    .modal-close-btn,
+    .viewer-toolbar button {
+      display: inline-block;
+      background: #0073BC;
+      color: white;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Open Sans', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .discord-btn:hover,
+    .home-btn:hover,
+    .action-btn:hover,
+    .snappy-link-btn:hover,
+    .modal-link-btn:hover,
+    .modal-close-btn:hover,
+    .viewer-toolbar button:hover {
+      background: #57B7E7;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .discord-btn:active,
+    .home-btn:active,
+    .action-btn:active,
+    .snappy-link-btn:active,
+    .modal-link-btn:active,
+    .modal-close-btn:active,
+    .viewer-toolbar button:active {
+      background: #26A739;
+      color: white;
+    }
+
+    /* SNAPPY TITLE / VIEWER */
+    .snappy-title {
+      text-align: center;
+      color: #002754;
+      font-size: clamp(2rem, 3.6vw, 2.8rem);
+      margin: 0 0 12px;
+    }
+
+    .snappy-subtitle {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+
+    .viewer-section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 20px 0;
+    }
+
+    .viewer-shell {
+      border: 2px solid #57B7E7;
+      border-radius: 18px;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #eef7fc, #ffffff);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .viewer-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 16px;
+      background: white;
+      border-bottom: 1px solid rgba(0, 39, 84, 0.08);
+    }
+
+    .viewer-canvas-wrap {
+      position: relative;
+      width: 100%;
+      height: 70vh;
+      min-height: 420px;
+      max-height: 760px;
+      background:
+        radial-gradient(circle at top, rgba(87, 183, 231, 0.25), rgba(255,255,255,0) 45%),
+        linear-gradient(to bottom, #f7fbfe 0%, #edf6fb 55%, #e4f2fa 100%);
+    }
+
+    #submarine-viewer {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .viewer-loading,
+    .viewer-error {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #002754;
+      font-weight: 600;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(2px);
+    }
+
+    .viewer-help {
+      text-align: center;
+      padding: 14px 16px 18px;
+      color: #002754;
+      font-size: 0.96rem;
+      background: white;
+    }
+
+    .snappy-button-wrap {
+      text-align: center;
+      margin-top: 22px;
+    }
+
+    /* ACTION BUTTONS */
+    .action-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1100px;
+      margin: 55px auto 0;
+      padding: 0 20px;
+    }
+
+    .action-btn {
+      display: block;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      font-size: 1rem;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 20, 40, 0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 20000;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+      background: white;
+      max-width: 560px;
+      width: 100%;
+      border-radius: 18px;
+      padding: 34px 28px 26px;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.22);
+      text-align: center;
+    }
+
+    .modal-box h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #002754;
+      font-size: 1.8rem;
+    }
+
+    .modal-box p {
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    .modal-link-btn {
+      margin-right: 10px;
+    }
+
+    .modal-close-x {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      color: #002754;
+    }
+
+    /* SPONSORS */
+.sponsor-section {
+  padding: 75px 0 0;
+}
+
+.sponsor-title {
+  text-align: center;
+  color: #002754;
+  margin: 0 0 20px;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+}
+
+.sponsor-track-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: white;
+  border-top: 1px solid #e8eef4;
+  border-bottom: 1px solid #e8eef4;
+  padding: 20px 0;
+}
+
+.sponsor-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: sponsorScroll 75s linear infinite;
+}
+
+.sponsor-track:hover {
+  animation-play-state: paused;
+}
+
+.sponsor-group {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-shrink: 0;
+  padding-right: 26px;
+}
+
+.sponsor-logo-card {
+  width: 150px;
+  height: 88px;
+  background: white;
+  border: 1px solid #e3eef6;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  flex: 0 0 auto;
+}
+
+.sponsor-logo-card img {
+  max-width: 100%;
+  max-height: 52px;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(8%);
+}
+
+@keyframes sponsorScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+    /* FOOTER */
+    .footer {
+      margin-top: 0;
+      text-align: center;
+      padding: 24px 20px;
+      background: #002754;
+      color: white;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .meeting-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .action-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .viewer-canvas-wrap {
+        height: 56vh;
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-banner {
+        min-height: 68vh;
+      }
+
+      .meeting-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .meeting-card h3 {
+        min-height: auto;
+      }
+
+      .discord-cta {
+        padding: 24px 18px;
+      }
+
+      .modal-box {
+        padding: 28px 20px 22px;
+      }
+
+      .modal-link-btn,
+      .modal-close-btn {
+        width: 100%;
+        margin: 0 0 10px;
+      }
+    }
+  </style>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+
+<body class="home-page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <img src="media/auvic-logo-white.png" alt="AUVIC logo" class="logo">
+
+    <div class="title">
+      <a href="index.html">AUVIC: Autonomous Underwater Vehicles</a>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-item">
+        <a href="#">Vehicles</a>
+        <div class="dropdown">
+          <a href="vehicle-snappy.html">Snappy 2026</a>
+          <a href="vehicle-kraken.html">Kraken 2025</a>
+          <a href="vehicle-trident.html">Trident 2023</a>
+          <a href="vehicle-polaris.html">Polaris 2018 & 2019</a>
+          <a href="vehicle-redherring.html">Red Herring 2016 & 2017</a>
+          <a href="vehicle-aerius.html">Aerius 2009</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#">Competitions</a>
+        <div class="dropdown">
+          <a href="competition-2026.html">2026</a>
+          <a href="competition-2025.html">2025</a>
+        </div>
+      </div>
+
+      <a href="about-us.html">About Us</a>
+      <a href="sponsors.html">Sponsors</a>
+      <a href="contact-us.html">Contact Us</a>
+
+      <div class="site-search">
+        <input type="text" id="siteSearchInput" placeholder="Search..." autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- HERO VIDEO BANNER -->
+  <section class="hero-banner">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="media/waves-banner.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-fallback"></div>
+
+    <div class="hero-overlay">
+      <h1>AUVIC<br>Autonomous Underwater Vehicles</h1>
+      <p>
+        We crave the sea. 
+      </p>
+    </div>
+  </section>
+
+  <!-- MEETING TIMES -->
+  <section class="section-shell">
+    <h2 class="section-title">Meeting Times</h2>
+    <p class="section-intro">
+      Want to get involved? Drop by a meeting, meet the team, and see what AUVIC is building this year.
+    </p>
+
+    <div class="meeting-grid">
+      <div class="meeting-card">
+        <img src="media/generalmeetingicon.png" alt="General meeting icon" class="meeting-icon">
+        <h3>General Meeting</h3>
+        <p>Bi-Weekly Monday<br>6:00 PM</p>
+      </div>
+
+      <div class="meeting-card">
+        <img src="media/electricalmeetingicon.png" alt="Electrical meeting icon" class="meeting-icon">
+        <h3>Electrical Team Meeting</h3>
+        <p>Weekly Wednesday<br>6:00 PM</p>
+      </div>
+
+      <div class="meeting-card">
+        <img src="media/mechanicalmeetingicon.png" alt="Mechanical meeting icon" class="meeting-icon">
+        <h3>Mechanical Team Meeting</h3>
+        <p>Weekly Monday<br>5:00 PM</p>
+      </div>
+
+      <div class="meeting-card">
+        <img src="media/softwaremeetingicon.png" alt="Software meeting icon" class="meeting-icon">
+        <h3>Software Team Meeting</h3>
+        <p>Weekly Wednesday<br>7:00 PM</p>
+      </div>
+    </div>
+
+    <div class="discord-cta">
+      <div class="discord-cta-content">
+        <h3>Dive in through Discord</h3>
+        <p>
+          Join the Discord and jump into the team chat before your first meeting.
+        </p>
+        <a href="https://discord.gg/dJ8F5ZGKed" target="_blank" rel="noopener noreferrer" class="discord-btn">
+          Join the AUVIC Discord
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNAPPY / 3D MODEL -->
+  <section class="section-shell">
+    <h2 class="snappy-title">This Year’s Submarine: Snappy</h2>
+    <p class="snappy-subtitle">
+      Explore Snappy in 3D below. Rotate, zoom, and get a closer look at the vehicle our team is building for this competition season.
+    </p>
+  </section>
+
+  <section class="viewer-section">
+    <div class="viewer-shell">
+      <div class="viewer-toolbar">
+        <button type="button" id="resetViewBtn">Reset View</button>
+        <button type="button" id="toggleRotateBtn">Pause Auto Rotate</button>
+      </div>
+
+      <div class="viewer-canvas-wrap">
+        <canvas id="submarine-viewer"></canvas>
+        <div class="viewer-loading" id="viewerLoading">Loading 3D model...</div>
+        <div class="viewer-error" id="viewerError" style="display:none;">
+          The 3D model could not be loaded.
+        </div>
+      </div>
+
+      <div class="viewer-help">
+        Drag to rotate • Scroll to zoom • Right-click / two-finger drag to pan
+      </div>
+    </div>
+
+    <div class="snappy-button-wrap">
+      <a href="vehicle-snappy.html" class="snappy-link-btn">Visit Snappy’s Page</a>
+    </div>
+  </section>
+
+  <!-- ACTION BUTTONS -->
+  <section class="action-buttons">
+    <button class="action-btn" id="openJoinModal">How to Join</button>
+    <a href="about-us.html" class="action-btn">Meet the Team</a>
+    <a href="contact-us.html" class="action-btn">Contact Us</a>
+  </section>
+
+  <!-- JOIN MODAL -->
+  <div class="modal" id="joinModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
+      <button class="modal-close-x" id="closeJoinModalX" aria-label="Close popup">&times;</button>
+      <h3 id="joinModalTitle">How to Join AUVIC</h3>
+      <p>
+        To join AUVIC, students just need to join the Discord and then attend a meeting. That's it — come say hi, meet the team, and get involved.
+      </p>
+      <a href="https://discord.gg/dJ8F5ZGKed" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
+        Join the Discord
+      </a>
+    </div>
+  </div>
+
+  <!-- SPONSOR LOGO GALLERY -->
+
+  <section class="sponsor-section">
+    <h2 class="sponsor-title">Our Sponsors</h2>
+
+    <div class="sponsor-track-wrap">
+      <div class="sponsor-track">
+
+        <div class="sponsor-group">
+          <div class="sponsor-logo-card"><img src="media/bcferries.png" alt="BC Ferries logo"></div>
+          <div class="sponsor-logo-card"><img src="media/cewilcanada.png" alt="CEWIL Canada logo"></div>
+          <div class="sponsor-logo-card"><img src="media/rainhouse.png" alt="Rainhouse Manufacturing Canada ltd logo"></div>
+          <div class="sponsor-logo-card"><img src="media/altium.png" alt="Altium logo"></div>
+          <div class="sponsor-logo-card"><img src="media/altech.png" alt="Altech Anodizing ltd logo"></div>
+          <div class="sponsor-logo-card"><img src="media/sendcutsend.png" alt="SendCutSend logo"></div>
+        </div>
+
+        <div class="sponsor-group" aria-hidden="true">
+          <div class="sponsor-logo-card"><img src="media/bcferries.png" alt="BC Ferries logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/cewilcanada.png" alt="CEWIL Canada logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/rainhouse.png" alt="Rainhouse Manufacturing Canada ltd logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/altium.png" alt="Altium logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/altech.png" alt="Altech anodizing ltd logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/sendcutsend.png" alt="SendCutSend logo duplicate"></div>
+        </div>
+
+        <div class="sponsor-group" aria-hidden="true">
+          <div class="sponsor-logo-card"><img src="media/bcferries.png" alt="BC Ferries logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/cewilcanada.png" alt="CEWIL Canada logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/rainhouse.png" alt="Rainhouse Manufacturing Canada ltd logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/altium.png" alt="Altium logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/altech.png" alt="Altech anodizing ltd logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/sendcutsend.png" alt="SendCutSend logo duplicate"></div>
+        </div>
+
+        <div class="sponsor-group" aria-hidden="true">
+          <div class="sponsor-logo-card"><img src="media/bcferries.png" alt="BC Ferries logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/cewilcanada.png" alt="CEWIL Canada logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/rainhouse.png" alt="Rainhouse Manufacturing Canada ltd logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/altium.png" alt="Altium logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/altech.png" alt="Altech anodizing ltd logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/sendcutsend.png" alt="SendCutSend logo duplicate"></div>
+        </div>
+
+        <div class="sponsor-group" aria-hidden="true">
+          <div class="sponsor-logo-card"><img src="media/bcferries.png" alt="BC Ferries logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/cewilcanada.png" alt="CEWIL Canada logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/rainhouse.png" alt="Rainhouse Manufacturing Canada ltd logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/altium.png" alt="Altium logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/altech.png" alt="Altech anodizing ltd logo duplicate"></div>
+          <div class="sponsor-logo-card"><img src="media/sendcutsend.png" alt="SendCutSend logo duplicate"></div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (*don't change, or make sure to update on every page) -->
+
+  <footer class="footer">
+    <p>© AUVIC University of Victoria 2026</p>
+  </footer>
+
+  <!-- JOIN MODAL SCRIPT -->
+  <script>
+    const joinModal = document.getElementById('joinModal');
+    const openJoinModal = document.getElementById('openJoinModal');
+    const closeJoinModalX = document.getElementById('closeJoinModalX');
+
+    function openModal() {
+      joinModal.classList.add('show');
+      joinModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      joinModal.classList.remove('show');
+      joinModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    openJoinModal.addEventListener('click', openModal);
+    closeJoinModalX.addEventListener('click', closeModal);
+
+    joinModal.addEventListener('click', (event) => {
+      if (event.target === joinModal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && joinModal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+  </script>
+
+  <!-- 3D MODEL -->
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    const canvas = document.getElementById('submarine-viewer');
+    const loadingEl = document.getElementById('viewerLoading');
+    const errorEl = document.getElementById('viewerError');
+    const resetBtn = document.getElementById('resetViewBtn');
+    const toggleRotateBtn = document.getElementById('toggleRotateBtn');
+
+    const scene = new THREE.Scene();
+    scene.background = null;
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+    camera.position.set(0, 2.2, 6);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.enablePan = true;
+    controls.minDistance = 2;
+    controls.maxDistance = 18;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.2;
+    controls.target.set(0, 0.6, 0);
+    controls.update();
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2.2);
+    scene.add(ambientLight);
+
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 2.5);
+    directionalLight1.position.set(5, 8, 6);
+    scene.add(directionalLight1);
+
+    const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1.3);
+    directionalLight2.position.set(-6, 3, -4);
+    scene.add(directionalLight2);
+
+    const hemiLight = new THREE.HemisphereLight(0xdff4ff, 0xcfe8f7, 1.3);
+    scene.add(hemiLight);
+
+    let modelRoot = null;
+    const loader = new GLTFLoader();
+
+    function fitModelToView(object3D) {
+      const box = new THREE.Box3().setFromObject(object3D);
+      const size = box.getSize(new THREE.Vector3());
+      const center = box.getCenter(new THREE.Vector3());
+
+      object3D.position.x += (object3D.position.x - center.x);
+      object3D.position.y += (object3D.position.y - center.y);
+      object3D.position.z += (object3D.position.z - center.z);
+
+      const maxDim = Math.max(size.x, size.y, size.z) || 1;
+      const desiredSize = 3.4;
+      const scale = desiredSize / maxDim;
+      object3D.scale.setScalar(scale);
+
+      const scaledBox = new THREE.Box3().setFromObject(object3D);
+      const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
+      const scaledSize = scaledBox.getSize(new THREE.Vector3());
+
+      object3D.position.sub(scaledCenter);
+      object3D.position.y += scaledSize.y * 0.15;
+
+      controls.target.set(0, scaledSize.y * 0.18, 0);
+      camera.position.set(0, scaledSize.y * 0.65, Math.max(4.5, scaledSize.z * 2.8));
+      camera.lookAt(controls.target);
+      controls.update();
+    }
+
+    loader.load(
+      'media/submarine.glb',
+      (gltf) => {
+        modelRoot = gltf.scene;
+        scene.add(modelRoot);
+        fitModelToView(modelRoot);
+        loadingEl.style.display = 'none';
+      },
+      undefined,
+      () => {
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'flex';
+      }
+    );
+
+    function resizeViewer() {
+      const wrap = canvas.parentElement;
+      const width = wrap.clientWidth;
+      const height = wrap.clientHeight;
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
+
+    resizeViewer();
+    window.addEventListener('resize', resizeViewer);
+
+    resetBtn.addEventListener('click', () => {
+      if (!modelRoot) return;
+      fitModelToView(modelRoot);
+    });
+
+    toggleRotateBtn.addEventListener('click', () => {
+      controls.autoRotate = !controls.autoRotate;
+      toggleRotateBtn.textContent = controls.autoRotate ? 'Pause Auto Rotate' : 'Resume Auto Rotate';
+    });
+
+    const clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const delta = clock.getDelta();
+      controls.update(delta);
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  </script>
+
+ <!-- SEARCH SCRIPT -->
+  <script>
+    const pages = [
+      {
+        title: "Home",
+        url: "index.html",
+        keywords: "home auvic autonomous underwater vehicles submarine meetings discord snappy"
+      },
+
+      {
+        title: "Snappy",
+        url: "vehicle-snappy.html",
+        keywords: "snappy 2026 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Kraken",
+        url: "vehicle-kraken.html",
+        keywords: "kraken 2025 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Trident",
+        url: "vehicle-trident.html",
+        keywords: "trident 2023 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Polaris",
+        url: "vehicle-polaris.html",
+        keywords: "polaris 2018 2019 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Red Herring",
+        url: "vehicle-redherring.html",
+        keywords: "red herring redherring 2016 2017 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Aerius",
+        url: "vehicle-aerius.html",
+        keywords: "aerius 2009 submarine vehicle parts electrical mechanical software"
+      },
+
+      {
+        title: "Competition 2026",
+        url: "competition-2026.html",
+        keywords: "competition 2026 robosub california woollett aquatics center centre irvine usa goals qualify participants july"
+      },
+
+      {
+        title: "Competition 2025",
+        url: "competition-2025.html",
+        keywords: "competition 2025 robosub california woollett aquatics center centre irvine usa goals qualify participants august 29 29th results"
+      },
+
+      {
+        title: "About Us",
+        url: "about-us.html",
+        keywords: "about us team people student club admin administration lead president project manager bio members"
+      },
+
+      {
+        title: "Sponsors",
+        url: "sponsors.html",
+        keywords: "sponsor sponsors organizations organisations companies support bc ferries cewil rainhouse altium altech anodizing ltd send cut send sendcutsend donate sponsorship"
+      },
+
+      {
+        title: "Contact Us",
+        url: "contact-us.html",
+        keywords: "join connect contact countdown email discord instagram insta linked in linkedin mail mailing address location b250 meeting times"
+      },
+
+      /* include more pages below (if needed) */
+
+    ];
+
+    const searchInput = document.getElementById("siteSearchInput");
+    const searchResults = document.getElementById("searchResults");
+
+    searchInput.addEventListener("input", function () {
+      const query = searchInput.value.toLowerCase().trim();
+      searchResults.innerHTML = "";
+
+      if (query === "") {
+        searchResults.style.display = "none";
+        return;
+      }
+
+      const matches = pages.filter(page =>
+        page.title.toLowerCase().includes(query) ||
+        page.keywords.toLowerCase().includes(query)
+      );
+
+      if (matches.length === 0) {
+        searchResults.innerHTML = `<div class="search-no-results">No results found</div>`;
+      } else {
+        matches.forEach(page => {
+          const resultLink = document.createElement("a");
+          resultLink.href = page.url;
+          resultLink.textContent = page.title;
+          searchResults.appendChild(resultLink);
+        });
+      }
+
+      searchResults.style.display = "block";
+    });
+
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".site-search")) {
+        searchResults.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>

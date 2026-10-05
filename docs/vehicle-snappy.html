@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snappy 2026 | AUVIC</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+     
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+      /* FULL WIDTH MOVING GALLERY */
+
+      .moving-gallery-section {
+        margin: 60px 0;
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .moving-gallery-section h2 {
+        text-align: center;
+        color: #002754;
+        margin-bottom: 20px;
+      }
+
+      .moving-gallery-wrapper {
+        overflow: hidden;
+        width: 100%;
+        background: #f7f9fc;
+        padding: 20px 0;
+      }
+
+      .moving-gallery-track {
+        display: flex;
+        width: max-content;
+        gap: 20px;
+        animation: scrollGallery 160s linear infinite;
+      }
+
+      .moving-gallery-wrapper:hover .moving-gallery-track {
+        animation-play-state: paused;
+      }
+
+      .moving-gallery-track img {
+        height: 280px;
+        border-radius: 10px;
+        object-fit: cover;
+        flex-shrink: 0;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      }
+
+      @keyframes scrollGallery {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .moving-gallery-track img {
+          height: 180px;
+        }
+      }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+    <img src="media/auvic-logo-white.png" alt="AUVIC logo" class="logo">
+    
+    <div class="title">
+        <a href="index.html">AUVIC: Autonomous Underwater Vehicles</a>
+    </div>
+    
+    <nav class="nav">
+        <div class="nav-item">
+            <a href="#">Vehicles</a>
+            <div class="dropdown">
+                <a class="active-page" href="vehicle-snappy.html">Snappy 2026</a>
+                <a href="vehicle-kraken.html">Kraken 2025</a>
+                <a href="vehicle-trident.html">Trident 2023</a>
+                <a href="vehicle-polaris.html">Polaris 2018 & 2019</a>
+                <a href="vehicle-redherring.html">Red Herring 2016 & 2017</a>
+                <a href="vehicle-aerius.html">Aerius 2009</a>
+            </div>
+        </div>
+        
+        <div class="nav-item">
+            <a href="#">Competitions</a>
+            <div class="dropdown">
+                <a href="competition-2026.html">2026</a>
+                <a href="competition-2025.html">2025</a>
+            </div>
+        </div>
+        
+        <a href="about-us.html">About Us</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="contact-us.html">Contact Us</a>
+
+        <div class="site-search">
+            <input type="text" id="siteSearchInput" placeholder="Search..." autocomplete="off">
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+
+<main class="vehicle-page">
+    
+<!-- HERO -->
+ 
+<section class="vehicle-hero">
+    <h1 class="page-title">Snappy 2026</h1>
+    <img src="media/snappy-main.png" alt="Snappy 2026 vehicle" class="vehicle-main-image">
+</section>
+
+<!-- DESCRIPTION -->
+
+<section class="vehicle-description">
+    <h2>About Snappy</h2>
+    <p>
+      Snappy is AUVIC's 2026 autonomous underwater vehicle, designed to push the team's capabilities in navigation, precision, and mission performance. Building on previous designs, Snappy focuses on improved reliability, modular systems, and advanced control for competition environments.
+    </p>
+</section>
+
+<!-- ACCORDION -->
+
+<section class="accordion-section">
+
+    <!-- Team Updates -->
+
+    <h3 style="color:#0073bc; margin-bottom: 15px;">Team Updates</h3>
+    
+    <button class="accordion">Electrical Updates</button>
+    <div class="panel">
+        <p>
+        Many components of the Electrical system were redesigned or iterated on for the 2025/2026 cycle. A new pcb was designed, soldered, tested and troubleshooted for this iteration of the sub. Many of the issues and grievances of the previous boards were addressed in this new design. As a result other aspects of the system were updated to work with the new design. Additionally new firmware was written for the new board and to change how the electrical boards interact with the software on the Jetson. 
+        </p>
+    </div>
+
+    <button class="accordion">Mechanical Updates</button>
+    <div class="panel">
+        <p>
+        The team worked to overhaul the entire sub apart from the main acrylic enclosure. This allowed for a redesigned main frame which is more modular, robust, and maneuverable. A new design was created for each of the pieces of mission equipment as well. A new torpedo system was created featuring in house machined waterproof solenoid enclosures. A new dropper was designed to optimize stable and accurate drops. Finally, a fully capable claw was designed with swappable arms allowing for future tailoring to the objects required at competitions.
+        </p>
+    </div>
+
+    <button class="accordion">Software Updates</button>
+    <div class="panel">
+        <p>
+        The 2025/2026 design cycle brought a complete rework of the software system, switching the onboard software from Python to C++ for improved performance, error handling, and architecture support. The sensors - Bar02 pressure sensor, XSens MTI 620 VRU, Intel RealSense D435i (front camera), and Intel RealSense D405 (bottom camera) - are all carried over from the kraken architecture.
+        </p>
+    </div>
+
+    <!-- Vehicle Parts -->
+
+    <h3 style="color:#0073bc; margin-top: 35px; margin-bottom: 15px;">Vehicle Parts</h3>
+
+    <button class="accordion">Claw</button>
+    <div class="panel">
+        <p>
+        This year's claw is designed around a 4 bar mechanism that will allow the claw to grab rectangular objects more reliably. This system is actuated by an in-house waterproofed servo. The claw features swappable claw pads allowing for optimization for the objects given during competition. This will also allow the claw to be updated and used again in later competitions.
+        </p>
+    </div>
+
+    <button class="accordion">Computer Vision</button>
+    <div class="panel">
+        <p>
+        The computer vision node determines what/where objects or course components are in front of/below the AUV. To achieve this, the computer vision pipeline begins by preprocessing the raw images from the front and bottom cameras. This includes colour correction and light level correction. The corrected images are then fed into the computer vision model for object detection. The objects detected in view are given a label, confidence level, and bounding box. Finally the depth feed from each camera is added, providing an estimate of the objects' 3D positions relative to the AUV. If the confidence level is above a chosen threshold, the labels and screen positions are given to the planner for decision making.
+        </p>
+    </div>
+
+    <button class="accordion">Controller</button>
+    <div class="panel">
+        <p>
+        The controller node comprises the second half of the control system, receiving the AUV's estimated position and orientation along with movement instructions from the planner node, and determines the thrust required for each thruster using a PID controller. The planner sends the controller a target location, the controller navigates to that location with the help of the state estimator, and then the controller tells the planner that the task is complete and can move to the next action.
+        </p>
+    </div>
+
+    <button class="accordion">Dropper</button>
+    <div class="panel">
+        <p>
+        This year's dropper utilizes two electrical solenoids placed inside in house machined waterproof enclosures. These are used to actuate the dropper, carrying two markers. These markers have been designed to optimize hydrodynamic stability in freefall after release.
+        </p>
+    </div>
+
+    <button class="accordion">Firmware</button>
+    <div class="panel">
+        <p>
+        As a new board was designed for this design cycle, new firmware had to be written or old firmware adjusted. Since the new board and the old boards all use stm32F4 style chips, some of the firmware on the previous systems could be adjusted and reused. However some features of the new board were completely new. For example many of the ic's on the new board for controlling various power outputs can be interacted with over I2C to read various values.
+        </p>
+    </div>
+
+    <button class="accordion">Mower Board</button>
+    <div class="panel">
+        <p>
+        The Mowerboard was the main focus for the electrical team this design cycle and replaced two boards in the previous system. The design of the new board aimed to create a more reliable system and to fix a few unresolved issues present in the previous boards. Additionally due to age and performance issues, new thrusters and batteries were purchased and had to be accounted for on the new board. 
+        </p>
+    </div>
+
+    <button class="accordion">Planner</button>
+    <div class="panel">
+        <p>
+        Snappy features a mission planning node, allowing quick iteration of AUV operation and an overview of the AUV's mission plan. The planner is implemented using the BehaviorTree.CPP framework for creating behaviour trees which define operations such as movement and peripheral device activation.
+        </p>
+    </div>
+
+    <button class="accordion">Simulation</button>
+    <div class="panel">
+        <p>
+        When pool testing is not available, a simulation of the AUV and competition course allows software to be tested without being in the water. The simulation uses the Gazebo framework.
+        </p>
+    </div>
+
+    <button class="accordion">State Estimator</button>
+    <div class="panel">
+        <p>
+        The state estimator node is the first half of the onboard control system, providing a continuous estimate for position and orientation of the AUV. This node takes data from the pressure sensor, VRU, and front camera, feeds it through a sensor fusion algorithm featuring an extended Kalman filter, and then sends the state estimation to the controller node.
+        </p>
+    </div>
+
+    <button class="accordion">Tether</button>
+    <div class="panel">
+        <p>
+        The tether is essentially a long, waterproof ethernet cable. It allows the software team to reliably maintain a connection with the submarine, even while underwater. The tether was not ready last year, but was made a priority for this competition cycle due to the time lost due to connection issues. For this competition cycle the wires within the tether were re-soldered and then re-potted.
+        </p>
+    </div>
+
+    <button class="accordion">Torpedo</button>
+    <div class="panel">
+        <p>
+        The goal of this year's torpedo design was to create a functional and repeatable mechanism. The team has designed and manufactured two waterproof solenoid enclosures that will be used to release the spring loaded torpedo.
+        </p>
+    </div>
+
+    <button class="accordion">Wiring Harness</button>
+    <div class="panel">
+        <p>
+        The wiring harness from the previous system was redone due to the change in the pcb used on the submarine. Additionally the previous wiring harness made it hard to fit the internal electronics into the enclosure of the sub. In the new wiring harness, thicker silicone wires were used when possible to prevent any heat/resistance issues and increase the malleability of the wires. XT90’s were used for connecting the batteries to the Mowerboard to prevent sparks and inrush current. Additionally a combination of wire nuts and lever nuts were used to connect wires to allow greater flexibility. 
+        </p>
+    </div>
+
+</section>
+
+</main>
+
+<!-- FULL WIDTH GALLERY -->
+
+<section class="moving-gallery-section">
+  <h2>Images</h2>
+
+  <div class="moving-gallery-wrapper">
+    <div class="moving-gallery-track">
+
+      <!-- ORIGINAL SET -->
+      <img src="media/snappy1.png">
+      <img src="media/snappy2.png">
+      <img src="media/snappy3.png">
+      <img src="media/snappy4.png">
+      <img src="media/snappy5.png">
+      <img src="media/snappy6.png">
+      <img src="media/snappy7.png">
+      <img src="media/snappy8.png">
+      <img src="media/snappy9.png">
+      <img src="media/snappy10.png">
+      <img src="media/snappy11.png">
+      <img src="media/snappy12.png">
+
+      <!-- DUPLICATE SET -->
+      <img src="media/snappy1.png">
+      <img src="media/snappy2.png">
+      <img src="media/snappy3.png">
+      <img src="media/snappy4.png">
+      <img src="media/snappy5.png">
+      <img src="media/snappy6.png">
+      <img src="media/snappy7.png">
+      <img src="media/snappy8.png">
+      <img src="media/snappy9.png">
+      <img src="media/snappy10.png">
+      <img src="media/snappy11.png">
+      <img src="media/snappy12.png">
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+    <p>© AUVIC University of Victoria 2026</p>
+</footer>
+
+<!-- SCRIPT -->
+
+<script>
+
+/* ACCORDION */
+
+const accordions = document.querySelectorAll(".accordion");
+
+accordions.forEach(button => {
+    button.addEventListener("click", () => {
+        const panel = button.nextElementSibling;
+        
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+});
+
+</script>
+
+<!-- SEARCH SCRIPT -->
+<script>
+  const pages = [
+    {
+      title: "Home",
+      url: "index.html",
+      keywords: "home auvic autonomous underwater vehicles submarine meetings discord snappy"
+    },
+
+    {
+      title: "Snappy",
+      url: "vehicle-snappy.html",
+      keywords: "snappy 2026 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Kraken",
+      url: "vehicle-kraken.html",
+      keywords: "kraken 2025 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Trident",
+      url: "vehicle-trident.html",
+      keywords: "trident 2023 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Polaris",
+      url: "vehicle-polaris.html",
+      keywords: "polaris 2018 2019 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Red Herring",
+      url: "vehicle-redherring.html",
+      keywords: "red herring redherring 2016 2017 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Aerius",
+      url: "vehicle-aerius.html",
+      keywords: "aerius 2009 submarine vehicle parts electrical mechanical software"
+    },
+
+    {
+      title: "Competition 2026",
+      url: "competition-2026.html",
+      keywords: "competition 2026 robosub california woollett aquatics center centre irvine usa goals qualify participants july"
+    },
+
+    {
+      title: "Competition 2025",
+      url: "competition-2025.html",
+      keywords: "competition 2025 robosub california woollett aquatics center centre irvine usa goals qualify participants august 29 29th results"
+    },
+
+    {
+      title: "About Us",
+      url: "about-us.html",
+      keywords: "about us team people student club admin administration lead president project manager bio members"
+    },
+
+    {
+      title: "Sponsors",
+      url: "sponsors.html",
+      keywords: "sponsor sponsors organizations organisations companies support bc ferries cewil rainhouse altium altech anodizing ltd send cut send sendcutsend donate sponsorship"
+    },
+
+    {
+      title: "Contact Us",
+      url: "contact-us.html",
+      keywords: "join connect contact countdown email discord instagram insta linked in linkedin mail mailing address location b250 meeting times"
+    },
+  ];
+
+  const searchInput = document.getElementById("siteSearchInput");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase().trim();
+    searchResults.innerHTML = "";
+
+    if (query === "") {
+      searchResults.style.display = "none";
+      return;
+    }
+
+    const matches = pages.filter(page =>
+      page.title.toLowerCase().includes(query) ||
+      page.keywords.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = `<div class="search-no-results">No results found</div>`;
+    } else {
+      matches.forEach(page => {
+        const resultLink = document.createElement("a");
+        resultLink.href = page.url;
+        resultLink.textContent = page.title;
+        searchResults.appendChild(resultLink);
+      });
+    }
+
+    searchResults.style.display = "block";
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".site-search")) {
+      searchResults.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>
